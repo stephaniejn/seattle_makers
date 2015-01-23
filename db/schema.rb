@@ -46,16 +46,6 @@ ActiveRecord::Schema.define(version: 20150123190144) do
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
-  create_table "events_users", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
-  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
-
   create_table "tickets", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -86,8 +76,6 @@ ActiveRecord::Schema.define(version: 20150123190144) do
   add_foreign_key "attends", "users"
   add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
-  add_foreign_key "events_users", "events"
-  add_foreign_key "events_users", "users"
   add_foreign_key "tickets", "users"
   add_foreign_key "votes", "events"
   add_foreign_key "votes", "users"
