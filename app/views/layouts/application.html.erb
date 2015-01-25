@@ -2,14 +2,48 @@
 <html>
 <head>
   <title>SeattleMakers</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+
 <body>
 
-<%= yield %>
+<!-- Nav Bar-->
+<nav class="navbar" role="navigation">
+  <div class="container">
+    <nav class="navbar-header" >
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" style="height: 1px;margin: auto;text-align: center;">
+      <ul class="nav navbar-nav">
+        <li class='nav-item'><%= link_to 'ABOUT', about_path %></li>
+        <li class='nav-item'><%= link_to 'DISCOVER', root_path %></a></li>
+        <li class='nav-logo'><%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %></li>
+        <li class='nav-item'><%= link_to 'LOGIN', root_path %></a></li></li>
+        <li class='nav-item'><%= link_to 'SIGNUP', root_path %></a></li></li>
+      </ul>
+    </div>
+  </nav>
+</nav>
+
+<!-- Page Content -->
+
+  <%= yield %>
+
+<!-- End Page Content -->
 
 </body>
 </html>

@@ -5,4 +5,8 @@ class SitesController < ApplicationController
 
   end
 
+  def about
+
+  end
+
 end
