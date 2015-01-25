@@ -1,0 +1,15 @@
+<div class="col-md-4 col-md-offset-4">
+
+<h1>Edit Profile</h1>
+
+<div class="form-group">
+<%=  bootstrap_form_for @user do |f| %>
+   <%= f.text_field :name, :placeholder => "User Name"%>
+   <%= f.text_field :email, :placeholder => "User Email"%>
+ <%= f.submit :class=>'btn btn-primary'%>
+<% end %>
+
+
+</div>
+</div>
+
