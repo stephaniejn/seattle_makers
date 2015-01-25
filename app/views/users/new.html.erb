@@ -1,0 +1,12 @@
+<div class="col-md-6 col-md-offset-3">
+<h2> New User </h2>
+<br>
+
+<%= bootstrap_form_for :user do |f| %>
+  <%= f.email_field :email %>
+  <%= f.text_field :name %>
+  <%= f.password_field :password %>
+  <%= f.submit :class=>'btn btn-primary'%>
+<% end %>
+
+</div>
