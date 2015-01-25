@@ -24,6 +24,7 @@ h1 {
   color: #726659;
 }
 
+
 body {
   font-family: 'IM Fell Double Pica';
   font-size: 15px;
@@ -41,11 +42,17 @@ body {
   padding-right: 30px;
   padding-left: 30px;
   margin-right: 5px;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
 #start-btn {
   /*padding-left: 15px;*/
   margin-left: 5px;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
 .event-div {
@@ -55,7 +62,12 @@ body {
   margin-left: 10px;
   margin-right: 10px;
   border: .13em solid #726659;
-  /*background*/-color: #a88f6a;
+  /*background-color: #a88f6a;*/
+}
+
+.event-img {
+  border-bottom: 1px double #726659;
+  /*border-bottom: 5px double #726659;*/
 }
 
 /* ------------ About Page ------------ */
@@ -215,7 +227,7 @@ li.nav-logo a:hover {
   padding-left: 20px;
   margin: 5px;
   border-radius: 0;
-  border: 5px double #fff;
+  border: 5px double #a88f6a;
 }
 
 .btn-primary:hover,
@@ -223,9 +235,13 @@ li.nav-logo a:hover {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #a88f6a;
-  background-color: #fff;
-  border-color: #a88f6a;
+  /*color: #fff;
+  background-color: #a88f6a;
+  border-color: #a88f6a;*/
+  background-color: none;
+  background: none;
+  color: #fff;
+  border: 5px double #a88f6a;
 }
 
 .btn-primary:active,
@@ -256,5 +272,9 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary .badge {
   color: #fff;
   background-color: #000;
+}
+
+.btn-primary:focus,.btn-primary:active {
+   outline: none !important;
 }
 

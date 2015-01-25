@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+
+  $('#discover-btn').on('click', function(event){
+    $(this)
+      .addClass('animated zoomIn')
+      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
+  });
+
+  $('#start-btn').on('click', function(event){
+    $(this)
+      .addClass('animated zoomIn')
+      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
+  });
+
+})
