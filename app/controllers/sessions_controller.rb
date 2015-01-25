@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "You have just logged in"
-      redirect_to root_path
+      # redirect_to root_path
+      redirect_to login_path
     else
       flash[:error] = "Credentials Invalid!"
       render :create
