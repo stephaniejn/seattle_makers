@@ -1,0 +1,84 @@
+  <!-- Modal -->
+  <div class="modal fade" id="makerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <h3>Modal Body</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Carousel-->
+<div class="overlay"><h1 id='overlay-text'>SEATTLE MAKERS: Getting <br/>Hands Dirty Since 2015.</h1><br />
+  <button type="button" class="btn btn-primary" id="discover-btn">DISCOVER</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
+</div>
+
+
+<div id="header-carousel" class='carousel slide' data-ride='carousel' data-interval='false'>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "bg2.gif" %>
+    </div>
+    <!-- <div class="item">
+      <img src="http://i.imgur.com/TQMnivK.gif">
+    </div>
+    <div class="item">
+      <img src="http://i.imgur.com/VFQ9jXY.gif">
+    </div> -->
+  </div>
+
+  <!-- Controls -->
+  <!-- <a class="left carousel-control" href="#header-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#header-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div> -->
+<!-- End Carusel -->
+
+<!-- Events -->
+
+<h1>Trending</h1>
+
+<div class='event-row text-center'>
+  <div class='event-div'>
+    <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
+    <h3>Create a Cocktail from Scratch</h3>
+  </div>
+  <div class='event-div'>
+    <%= image_tag "wood_working.gif", :class =>'event-img' %>
+    <h3>Make a Coffee Table</h3>
+  </div>
+  <div class='event-div'>
+    <%= image_tag "plant_making.gif", :class =>'event-img' %>
+    <h3>Succulent Planting & Care</h3>
+  </div>
+</div>
+
+<div class='event-row text-center'>
+  <div class='event-div'>
+    <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
+    <h3>Create a Cocktail from Scratch</h3>
+  </div>
+  <div class='event-div'>
+    <%= image_tag "wood_working.gif", :class =>'event-img' %>
+    <h3>Make a Coffee Table</h3>
+  </div>
+  <div class='event-div'>
+    <%= image_tag "plant_making.gif", :class =>'event-img' %>
+    <h3>Succulent Planting & Care</h3>
+  </div>
+</div>

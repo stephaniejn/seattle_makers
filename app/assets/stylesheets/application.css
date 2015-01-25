@@ -10,9 +10,272 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
- */
- /*
  *= require rails_bootstrap_forms
  */
+
+
+div {
+  /*border: 1px solid #000;*/
+}
+
+h1 {
+  font-family: 'Montserrat';
+  font-size: 27px;
+  color: #726659;
+}
+
+
+body {
+  font-family: 'IM Fell Double Pica';
+  font-size: 15px;
+  background-color: #fbfbfb;
+}
+
+.main-container {
+  padding-top: 40px;
+  height: 600px;
+}
+
+/* ------------ Index Page ------------ */
+
+#discover-btn {
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: 5px;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+#start-btn {
+  /*padding-left: 15px;*/
+  margin-left: 5px;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.event-div {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: .13em solid #726659;
+  /*background-color: #a88f6a;*/
+}
+
+.event-img {
+  border-bottom: 1px double #726659;
+  /*border-bottom: 5px double #726659;*/
+}
+
+/* ------------ About Page ------------ */
+
+.our-story {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.p1{
+  text-align: left;
+  line-height: 28px;
+  font-size: 15px;
+  padding-right: 25px;
+}
+
+.p2 {
+  text-align: left;
+  line-height: 28px;
+  font-size: 15px;
+  padding-left: 25px;
+}
+
+.team-member {
+  /*text-align: left;*/
+}
+
+.team-icon {
+  width: 70%;
+  height: 70%;
+}
+
+.team-icon-male {
+  width: 50%;
+  height: 50%;
+}
+
+/* ------------ Carousel ------------ */
+
+#header-carousel {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+
+#overlay-text {
+  font-family: 'Amatic SC';
+  font-size: 100px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.overlay {
+  color:#fff;
+  position:absolute;
+  z-index:12;
+  top:30%;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+
+/* ------------ Nav Bar ------------ */
+
+@media (min-width:768px) {
+/* centered navigation */
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  border-bottom: 1px solid #a88f6a;
+}
+.nav.navbar-nav {
+  float: left;
+  margin-bottom: 0px;
+  color: #000;
+ }
+.nav.navbar-nav {
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  text-align: center;
+ }
+.nav.navbar-nav > li {
+  position: relative;
+  right: 50%;
+ }
+.nav.navbar-nav li {
+  text-align: left
+ }
+.nav.navbar-nav a {
+  height: 68px;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  letter-spacing: 1px;
+  background-color: #fbfbfb;
+ }
+
+ .nav.navbar-nav li.nav-item {
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+ }
+
+ .nav-logo {
+  padding-top: 0px;
+  margin-top: 0px
+ }
+
+}
+
+/* ------------ Links ------------ */
+
+li.nav-item a:link {
+  color: #a88f6a;
+}
+
+li.nav-item a:active {
+  color: #a88f6a;
+}
+
+li.nav-item a:visited {
+  color: #a88f6a;
+}
+
+li.nav-item a:hover {
+  color: #a88f6a;
+  text-decoration: underline;
+  background: none;
+}
+
+li.nav-logo a:hover {
+  background: none;
+}
+
+/* ------------------- button ------------------- */
+
+.btn-primary {
+  font-family: 'Montserrat';
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: none;
+  background: none;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin: 5px;
+  border-radius: 0;
+  border: 5px double #a88f6a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  /*color: #fff;
+  background-color: #a88f6a;
+  border-color: #a88f6a;*/
+  background-color: none;
+  background: none;
+  color: #fff;
+  border: 5px double #a88f6a;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #fff;
+  border-color: #000;
+}
+
+.btn-primary .badge {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn-primary:focus,.btn-primary:active {
+   outline: none !important;
+}
