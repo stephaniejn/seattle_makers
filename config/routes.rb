@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :users, only: [:show, :edit, :update]
+
+  get "/signup" => 'users#new'
+  post "/signup" => 'users#create'
+
+  get 'users/profile/:id' => 'users#other_user_profile', as: :profile
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,7 +26,10 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
+
   resources :users
+  resources :events
+
 
   # Example resource route with options:
   #   resources :products do
