@@ -47,6 +47,7 @@ body {
   font-family: 'Montserrat';
   font-size: 12px;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 #start-btn {
@@ -220,7 +221,7 @@ li.nav-logo a:hover {
   font-family: 'Montserrat';
   font-size: 15px;
   letter-spacing: 1px;
-  color: #fff;
+  color: #726659;
   background-color: none;
   background: none;
   padding-top: 10px;
@@ -242,7 +243,7 @@ li.nav-logo a:hover {
   border-color: #a88f6a;*/
   background-color: none;
   background: none;
-  color: #fff;
+  color: #726659;
   border: 5px double #a88f6a;
 }
 

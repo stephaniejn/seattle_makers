@@ -1,11 +1,11 @@
-<div class="col-md-6 col-md-offset-3">
-<h1>This is <%= @user.name%>'s personal profile</h1>
-<br> <br>
-<p> I will have a photo once we add in the facebook login. You can also change it! </p>
-<p> <strong>Name:</strong>
-<%= @user.name %>
-<p> <strong>Email:</strong>
-<%= @user.email %>
-</p>
- <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
-
+<div class='container main-container'>
+  <div class="col-md-6 col-md-offset-3">
+    <h1>This is <%= @user.name%>'s personal profile</h1>
+    <br> <br>
+    <p> I will have a photo once we add in the facebook login. You can also change it! </p>
+    <p><strong>Name:</strong>
+    <%= @user.name %></p>
+    <p> <strong>Email:</strong>
+    <%= @user.email %></p>
+    <p><%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %></p>
+</div>
