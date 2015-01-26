@@ -1,3 +1,17 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.images{
+position: relative;
+overflow: hidden;
+}
+.image {
+    float:left;
+    width:180px;
+    margin:1% 1% 45px 1%;
+}
+.title {
+    position:absolute;
+    bottom:0px;
+}
+.image img {
+    width: 100%;
+    display: block;
+}

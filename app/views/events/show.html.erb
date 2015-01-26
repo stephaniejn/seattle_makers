@@ -1,5 +1,5 @@
 
-<h1 style="text-align:center"><%= @event.title%> <%if @current_user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
+<h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
 <!-- need to set to not just current user but if current user is host, if @current_user = @event.user_id doesn't work-->
 <br> <br>
 
@@ -8,7 +8,7 @@
 
     <div class='col-xs-5 col-md-5'><img src = "<%=asset_path "placeholder.png"%>"></div>
 
-    <div style="text-align:center" class='col-xs-5 col-md-5'><p> <strong> Event Description: </strong> <%= @event.desc%> </p>
+    <div style="text-align:justified" class='col-xs-5 col-md-5'><p> <strong> Event Description: </strong> <%= @event.desc%> </p>
     <p> <strong> Host: </strong><%= @event.user.name%></p>
     <p> <strong> Category: </strong><%= @event.category.name%></p>
     <p> <strong> Capacity: </strong> <%= @event.capacity%> </p>
