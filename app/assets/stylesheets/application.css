@@ -34,8 +34,12 @@ body {
 }
 
 .main-container {
-  padding-top: 40px;
+  padding-top: 70px;
   height: 600px;
+}
+
+.glyphicon {
+  color: #726659;
 }
 
 /* ------------ Index Page ------------ */
@@ -143,53 +147,137 @@ body {
 @media (min-width:768px) {
 /* centered navigation */
 
-.navbar {
-  border-radius: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: 0;
-  border-bottom: 1px solid #a88f6a;
-}
-.nav.navbar-nav {
-  float: left;
-  margin-bottom: 0px;
-  color: #000;
- }
-.nav.navbar-nav {
-  clear: left;
-  float: left;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  left: 50%;
-  text-align: center;
- }
-.nav.navbar-nav > li {
-  position: relative;
-  right: 50%;
- }
-.nav.navbar-nav li {
-  text-align: left
- }
-.nav.navbar-nav a {
-  height: 68px;
-  font-family: 'Montserrat';
-  font-size: 15px;
-  letter-spacing: 1px;
-  background-color: #fbfbfb;
- }
+  .navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    border-bottom: 1px solid #a88f6a;
+  }
 
- .nav.navbar-nav li.nav-item {
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-left: 10px;
- }
+  .nav.navbar-nav {
+    float: left;
+    margin-bottom: 0px;
+    color: #000;
+  }
 
- .nav-logo {
-  padding-top: 0px;
-  margin-top: 0px
- }
+  .nav.navbar-nav {
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    text-align: center;
+  }
 
+  .nav.navbar-nav > li {
+    position: relative;
+    right: 50%;
+  }
+
+  .nav.navbar-nav li {
+    text-align: left
+  }
+
+  .nav.navbar-nav a {
+    height: 68px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    letter-spacing: 1px;
+    background-color: #fbfbfb;
+  }
+
+  .nav.navbar-nav li.nav-item {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  /* -- Logged-in User's Nav Bar -- */
+    .nav-user {
+      padding-top: 34px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+/*
+    li.nav-user.nav-glyph {
+      padding-top: 20px;
+      padding-left: 120px;
+    }*/
+
+    #nav-user-glyph {
+      padding-top: 16px;
+      padding-left: 140px;
+    }
+    #nav-user-link {
+      padding-top: 16px;
+    }
+
+    li.nav-user {
+      padding-top: 20px;
+    }
+
+    .nav-logo {
+      padding-top: 0px;
+      margin-top: 0px
+    }
+
+    .navbar-form {
+      padding-top: 12px;
+    }
+
+    .btn-nav {
+      font-family: 'Montserrat';
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #726659;
+      background-color: none;
+      background: none;
+      padding-top: 5px;
+      padding-right: 15px;
+      padding-bottom: 5px;
+      padding-left: 15px;
+      margin: 5px;
+      border-radius: 0;
+      border: 5px double #a88f6a;
+    }
+
+    .btn-nav:hover,
+    .btn-nav:focus,
+    .btn-nav:active,
+    .btn-nav.active,
+    .open .dropdown-toggle.btn-nav {
+      /*color: #fff;
+      background-color: #a88f6a;
+      border-color: #a88f6a;*/
+      background-color: none;
+      background: none;
+      color: #726659;
+      border: 5px double #a88f6a;
+    }
+
+    input.form-control {
+      border-radius: 0px;
+    }
+
+    form.navbar-form.navbar-left {
+      padding-right: 140px;
+    }
+
+    .dropdown {
+      border: none;
+      border-radius:0px;
+    }
+    .dropdown ul.dropdown-menu {
+      border-radius: 0px;
+      box-shadow:none;
+      width:200px;
+    }
+
+    #nav-logout-glyph {
+      padding-right: 20px;
+    }
 }
 
 /* ------------ Links ------------ */
@@ -207,6 +295,24 @@ li.nav-item a:visited {
 }
 
 li.nav-item a:hover {
+  color: #a88f6a;
+  text-decoration: underline;
+  background: none;
+}
+
+li.nav-user a:link {
+  color: #a88f6a;
+}
+
+li.nav-user a:active {
+  color: #a88f6a;
+}
+
+li.nav-user a:visited {
+  color: #a88f6a;
+}
+
+li.nav-user a:hover {
   color: #a88f6a;
   text-decoration: underline;
   background: none;

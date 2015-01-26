@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   get "about" => "sites#about"
+  get "test" => "sites#test"
   get "/signup" => 'users#new'
   post "/signup" => 'users#create'
 
