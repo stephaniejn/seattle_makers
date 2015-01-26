@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'discover' => 'events#discover'
   get 'category/:id' => 'events#category', as: :category
 
-  resources :users
   resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
