@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   get "about" => "sites#about"
+  get "test" => "sites#test"
   get "/signup" => 'users#new'
   post "/signup" => 'users#create'
 
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
 
   delete 'sessions/destroy'
   get 'logout' => 'sessions#destroy', as: :logout
-
 
   get 'discover' => 'events#discover'
   get 'category/:id' => 'events#category', as: :category
