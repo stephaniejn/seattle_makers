@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   delete 'sessions/destroy'
   get 'logout' => 'sessions#destroy', as: :logout
 
-  resources :events
+  get 'discover' => 'events#discover'
+  get 'category/:id' => 'events#category', as: :category
+
+  resources :events, except: [:index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

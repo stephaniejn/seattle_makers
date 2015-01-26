@@ -1,2 +1,25 @@
+
 <div class='container main-container'>
+
+    <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
+
+    <br />
+    <br />
+
+    <div class='row'>
+        <div class='col-xs-offset-4 col-md-offset-1'>
+
+        <div class='col-xs-5 col-md-5'><img src = "<%=asset_path "placeholder.png"%>"></div>
+
+        <div style="text-align:justified" class='col-xs-5 col-md-5'><p> <strong> Event Description: </strong> <%= @event.desc%> </p>
+        <p> <strong> Host: </strong> <%= @event.user.name%> </p>
+        <p> <strong> Category: </strong> <%= @event.category.name%> </p>
+        <p> <strong> Capacity: </strong> <%= @event.capacity%> </p>
+        <p> <strong> Donation Suggested? </strong> <%= @event.donation%> </p>
+        <br>
+        <br>
+        <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
+        </div>
+      </div>
+    </div>
 </div>

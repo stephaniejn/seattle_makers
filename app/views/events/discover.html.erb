@@ -1,0 +1,17 @@
+<div class='container main-container'>
+  <div class="category-h3">
+    <% @category.each do |c| %>
+    <h3><%= link_to c.name, category_path(c.id) %></h3>
+    <% end %>
+  </div>
+
+  <h1>Trending</h1>
+  <div class='event-row text-center'>
+  <% @event.each do |e| %>
+    <div class='event-div'>
+      <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
+      <h3><%= link_to e.title, event_path(e.id) %></h3>
+    </div>
+    <% end %>
+  </div>
+</div>

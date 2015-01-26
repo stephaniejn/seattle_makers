@@ -421,3 +421,11 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary:focus,.btn-primary:active {
    outline: none !important;
 }
+
+/* ------------------- discover ------------------- */
+
+
+.category-h3 h3{
+  display: inline-block;
+  padding-right: 20px;
+}
