@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       render :new
     else
       flash[:success] = "Added User"
-      redirect_to "/signup"
+      redirect_to login_path
       # WHEN COMBINED redirect_to :login
     end
   end
@@ -19,14 +19,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    is_authenticated?
     @user = User.find(params[:id])
   end
 
   def edit
+    is_authenticated?
     @user = User.find(params[:id])
   end
 
    def update
+    is_authenticated?
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.errors.any?
