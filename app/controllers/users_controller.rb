@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
   end
 
-   def other_user_profile
+  def other_user_profile
     @user = User.find(params[:id])
     # @userevents = @user.user_events
   end
@@ -22,6 +22,13 @@ class UsersController < ApplicationController
   def show
     is_authenticated?
     @user = User.find(params[:id])
+    if @current_user.id != @user.id
+      # render json: @user.id
+      # flash[:danger] = "This is a private page"
+      redirect_to profile_path
+    else
+      render @users
+    end
   end
 
   def edit
@@ -29,18 +36,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-   def update
+  def update
     is_authenticated?
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.errors.any?
       flash[:danger] = "There was an error in your edit - please try again"
       render :edit
-      else
-        flash[:success] = "Updated"
-        redirect_to @user
+    else
+      flash[:success] = "Updated"
+      redirect_to @user
+    end
   end
-end
 
   private
   def user_params
