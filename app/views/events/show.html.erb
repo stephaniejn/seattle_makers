@@ -1,6 +1,6 @@
 
 <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
-<!-- need to set to not just current user but if current user is host, if @current_user = @event.user_id doesn't work-->
+
 <br> <br>
 
 <div class='row'>
@@ -19,4 +19,5 @@
     </div>
   </div>
 </div>
+
 
