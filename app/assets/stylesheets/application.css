@@ -281,9 +281,19 @@ body {
       border: 5px double #a88f6a;
     }
 
+    .btn-nav:focus,.btn-nav:active {
+      outline: none !important;
+    }
+
+    .form-control:focus{
+      border-color: #cccccc;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
     input.form-control {
       border-radius: 0px;
-    }
+     }
 
     form.navbar-form.navbar-left {
       padding-right: 180px;
