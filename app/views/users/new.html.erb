@@ -17,9 +17,9 @@
 <br>
 
 <%= bootstrap_form_for :user do |f| %>
-  <%= f.email_field :email %>
-  <%= f.text_field :name %>
-  <%= f.password_field :password %>
+  <%= f.email_field :email, icon: "user" %>
+  <%= f.text_field :name, icon: "pencil" %>
+  <%= f.password_field :password, icon: "lock" %>
   <%= f.submit :class=>'btn btn-primary'%>
 <% end %>
 

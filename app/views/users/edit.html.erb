@@ -18,8 +18,8 @@
 
 <div class="form-group">
 <%=  bootstrap_form_for @user do |f| %>
-   <%= f.text_field :name, :placeholder => "User Name"%>
-   <%= f.text_field :email, :placeholder => "User Email"%>
+   <%= f.text_field :name, :placeholder => "User Name", icon: "pencil" %>
+   <%= f.text_field :email, :placeholder => "User Email", icon: "lock"%>
  <%= f.submit :class=>'btn btn-primary'%>
 <% end %>
 
