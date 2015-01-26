@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
 	def new
+		is_authenticated?
 		@event = Event.new
 		@categories = Category.all
 	end
@@ -9,17 +10,14 @@ class EventsController < ApplicationController
 		@event = Event.find_by_id(params[:id])
 	end
 
-	def index
-		@events = Event.all
-		@users = User.all
-	end
-
   def edit
+  	is_authenticated?
     @event = Event.find(params[:id])
     @categories = Category.all
   end
 
    def update
+   	is_authenticated?
     @event = Event.find(params[:id])
     @event.update(event_params)
     if @event.errors.any?
@@ -32,10 +30,11 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		# this_category = params.require(:category)
-		@event = Event.create(params.require(:event).permit(:title,:desc,:capacity,:category_id))
+		is_authenticated?
+		@user = current_user
+		@event = @user.events.create(post_params)
 		# @user = User.authenticate(params[:user][:email], params[:user][:password])
-		# render json: params
+		# render json: @event
 
 
 		if @event
@@ -51,6 +50,10 @@ class EventsController < ApplicationController
 	private
   def event_params
     params.require(:event).permit(:title, :desc, :capacity, :donation)
+  end
+
+  def post_params
+  	params.require(:event).permit(:title,:desc,:capacity,:category_id)
   end
 
 end
