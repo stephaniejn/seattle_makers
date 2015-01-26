@@ -1,3 +1,9 @@
+<div class='col-md-6 col-md-offset-3'>
+  <div class='error-msg text-center'>
+    <%= render "shared/flash" %>
+  </div>
+</div>
+
 <div class='container main-container'>
   <div class="col-md-6 col-md-offset-3">
     <h1>This is <%= @user.name%>'s personal profile</h1>
@@ -8,4 +14,5 @@
     <p> <strong>Email:</strong>
     <%= @user.email %></p>
     <p><%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %></p>
+  </div>
 </div>
