@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
    def other_user_profile
     @user = User.find(params[:id])
+    # @userevents = @user.user_events
   end
 
   def show
