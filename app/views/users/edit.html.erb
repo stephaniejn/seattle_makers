@@ -1,29 +1,26 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-  <div class = "alert alert-danger"
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class='container main-container'>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+    <div class = "alert alert-danger"
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    </div>
+  <% end %>
 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+  <div class="col-md-4 col-sm-4 col-md-offset-4">
+    <h1>Edit Profile</h1>
+    <div class="form-group">
+    <%=  bootstrap_form_for @user do |f| %>
+       <%= f.text_field :name, :placeholder => "User Name", icon: "pencil" %>
+       <%= f.text_field :email, :placeholder => "User Email", icon: "lock"%>
+     <%= f.submit :class=>'btn btn-primary'%>
     <% end %>
-    </ul>
+    </div>
   </div>
-  </div>
-<% end %>
-
-<div class="col-md-4 col-md-offset-4">
-
-<h1>Edit Profile</h1>
-
-<div class="form-group">
-<%=  bootstrap_form_for @user do |f| %>
-   <%= f.text_field :name, :placeholder => "User Name", icon: "pencil" %>
-   <%= f.text_field :email, :placeholder => "User Email", icon: "lock"%>
- <%= f.submit :class=>'btn btn-primary'%>
-<% end %>
-
-
-</div>
 </div>
 
