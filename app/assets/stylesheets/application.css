@@ -47,7 +47,7 @@ body {
 
 .error-msg {
   padding-top: 20px;
-  padding-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 .alert {
