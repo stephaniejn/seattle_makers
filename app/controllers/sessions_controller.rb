@@ -22,15 +22,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  #not working
   def destroy
-    if @user
-      session[:user_id] = nil
-      flash[:success] = "User logged out"
-      redirect_to login_path
-    else
-      flash[:danger] = "Already logged out"
-      redirect_to login_path
-    end
+    session[:user_id] = nil
+    flash[:success] = "User logged out"
+    redirect_to login_path
   end
 
 end
