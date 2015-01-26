@@ -21,7 +21,8 @@ $(document).ready(function() {
   $('#discover-btn').on('click', function(event){
     $(this)
       .addClass('animated zoomIn')
-      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
+      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'})
+      .window(location.href='discover');
   });
 
   $('#start-btn').on('click', function(event){
