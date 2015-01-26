@@ -2,7 +2,6 @@
 class SitesController < ApplicationController
 
   def index
-    is_authenticated?
     @current_user
   end
 
@@ -10,8 +9,5 @@ class SitesController < ApplicationController
 
   end
 
-  def test
-
-  end
 
 end
