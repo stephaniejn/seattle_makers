@@ -45,7 +45,6 @@ class EventsController < ApplicationController
 		# @user = User.authenticate(params[:user][:email], params[:user][:password])
 		# render json: @event
 
-
 		if @event
 		  flash[:success] = "Event Saved!"
 		  redirect_to root_path
@@ -65,6 +64,12 @@ class EventsController < ApplicationController
 		@category = Category.find_by_id(params[:id])
 		@event = Event.where(category_id: params[:id])
 	end
+
+  def attend
+    @event = Event.find_by_id(params[:id])
+    User.find_by_id(@current_user.id).attending << @event
+    redirect_to event_path(@event)
+  end
 
 	private
   def event_params

@@ -52,7 +52,7 @@ body {
 
 .error-msg {
   padding-top: 20px;
-  padding-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 .alert {
@@ -220,6 +220,10 @@ body {
     padding-top: 20px;
     padding-right: 10px;
     padding-left: 10px;
+  }
+
+  li.nav.navbar-nav {
+    padding-right: 0px;
   }
 
   /* -- Logged-in User's Nav Bar -- */
