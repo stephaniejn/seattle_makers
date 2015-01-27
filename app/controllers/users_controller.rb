@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    Ticket.create([{:user_id => @user.id}, {:user_id => @user.id}])
     if @user.errors.any?
       render :new
     else

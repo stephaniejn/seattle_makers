@@ -27,11 +27,17 @@
         <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
         <% elsif @event.capacity == @event.attending.count %>
         <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
+        <% elsif @current_user.tickets.length < 1 %>
+        <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
         <% else @event.attending.where(id:@current_user.id) == nil %>
         <%= link_to 'ATTEND EVENT', event_attend_path(@event), :class => 'btn btn-primary', :controller => :events, :action => :attend, :method => :post %>
         <% end %>
         <% else %>
         <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
+        <% end %>
+        <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
+        <% this_user = @event.user %>
+        <% this_user.tickets << Ticket.create() %>
         <% end %>
         <br>
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
