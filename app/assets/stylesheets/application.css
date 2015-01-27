@@ -20,6 +20,11 @@ div {
   /*border: 1px solid #000;*/
 }
 
+.wrapper {
+  min-height: 850px;
+  position: relative;
+}
+
 h1 {
   font-family: 'Montserrat';
   font-size: 27px;
@@ -154,7 +159,7 @@ body {
   color:#fff;
   position:absolute;
   z-index:12;
-  top:30%;
+  top:13%;
   left:0;
   width:100%;
   text-align:center;
@@ -164,6 +169,11 @@ body {
 
 @media (min-width:768px) {
 /* centered navigation */
+
+  /* this fixes the overflow problem, but blocks the drop down */
+  .navbar-collapse.collapse {
+    /*overflow: hidden !important;*/
+  }
 
   .navbar {
     border-radius: 0;
@@ -226,6 +236,7 @@ body {
 
     #nav-user-glyph {
       padding-top: 16px;
+      /* this is pushing the page too far */
       padding-left: 240px;
     }
     #nav-user-link {
@@ -312,6 +323,34 @@ body {
     #nav-logout-glyph {
       /*padding-right: 20px;*/
     }
+}
+
+/* ------------ Footer ------------ */
+
+footer {
+  position: absolute;
+  height: 90px;
+  width: 100%;
+  border-top: 1px solid #a88f6a;
+  bottom: 0;
+}
+
+footer > p {
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
+.fa {
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+.copyright {
+  padding-top: 25px;
+}
+
+.glyph a {
+  color: #000;
 }
 
 /* ------------ Links ------------ */
@@ -425,7 +464,7 @@ fieldset[disabled] .btn-primary.active {
 /* ------------------- discover ------------------- */
 
 
-.category-h3 h3{
+.category-h3 h3 {
   display: inline-block;
   padding-right: 20px;
 }
