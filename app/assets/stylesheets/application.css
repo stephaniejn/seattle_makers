@@ -167,10 +167,7 @@ body {
 
 /* ------------ Nav Bar ------------ */
 
-@media (min-width:768px) {
-/* centered navigation */
-
-  /* this fixes the overflow problem, but blocks the drop down */
+/* this fixes the overflow problem, but blocks the drop down */
   .navbar-collapse.collapse {
     /*overflow: hidden !important;*/
   }
@@ -226,38 +223,32 @@ body {
     padding-right: 0px;
   }
 
-  /* -- Logged-in User's Nav Bar -- */
-    .nav-user {
-      padding-top: 34px;
-      padding-right: 10px;
-      padding-left: 10px;
-    }
-/*
-    li.nav-user.nav-glyph {
-      padding-top: 20px;
-      padding-left: 120px;
-    }*/
+  /* -------- Logged-in User's Nav Bar -------- */
 
-    #nav-user-glyph {
-      padding-top: 16px;
-      /* this is pushing the page too far */
-      padding-left: 240px;
-    }
-    #nav-user-link {
-      padding-top: 16px;
+    .custom-navbar a {
+      height: 30px;
+      font-family: 'Montserrat';
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: #726659;
+      background-color: #fbfbfb;
     }
 
-    li.nav-user {
+    /* -- this is for the user name & drop-down menu in navbar -- */
+
+    .nav-item {
       padding-top: 20px;
     }
 
-    .nav-logo {
-      padding-top: 0px;
-      margin-top: 0px
+    .nav-item-dropdown {
+      padding-top: 8px;
+      padding-left: 170px;
     }
 
-    .navbar-form {
-      padding-top: 12px;
+    .custom-navbar {
+      padding-top: 13px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #a88f6a;
     }
 
     .search-nav {
@@ -266,77 +257,37 @@ body {
       letter-spacing: 1px;
     }
 
-    .btn-nav {
-      font-family: 'Montserrat';
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: #726659;
-      background-color: none;
-      background: none;
-      padding-top: 5px;
-      padding-right: 15px;
-      padding-bottom: 5px;
-      padding-left: 15px;
-      margin: 5px;
-      border-radius: 0;
-      border: 5px double #a88f6a;
+    .nav-item-dropdown {
+   /*   padding-left: 16px;*/
     }
 
-    .btn-nav:hover,
-    .btn-nav:focus,
-    .btn-nav:active,
-    .btn-nav.active,
-    .open .dropdown-toggle.btn-nav {
-      /*color: #fff;
-      background-color: #a88f6a;
-      border-color: #a88f6a;*/
-      background-color: none;
-      background: none;
-      color: #726659;
-      border: 5px double #a88f6a;
+    div.col-xs-2.col-s-2.col-md-2.nav-item {
+      text-align: left;
     }
 
     .btn-nav:focus,.btn-nav:active {
       outline: none !important;
     }
 
-    .form-control:focus{
-      border-color: #cccccc;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-
-    input.form-control {
-      border-radius: 0px;
-     }
-
-    form.navbar-form.navbar-left {
-      padding-right: 180px;
-    }
-
     .dropdown {
       border: none;
       border-radius:0px;
-    }
-    .dropdown ul.dropdown-menu {
-      border-radius: 0px;
-      box-shadow:none;
-      width:140px;
-    }
-
-    #nav-logout-glyph {
-      /*padding-right: 20px;*/
     }
 }
 
 /* ------------ Footer ------------ */
 
 footer {
-  position: absolute;
+  /*position: absolute;*/
   height: 90px;
   width: 100%;
   border-top: 1px solid #a88f6a;
   bottom: 0;
+}
+
+footer.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 footer > p {
@@ -377,25 +328,25 @@ li.nav-item a:hover {
   background: none;
 }
 
-li.nav-user a:link {
+.custom-navbar a:link {
   color: #a88f6a;
 }
 
-li.nav-user a:active {
+.custom-navbar a:active {
   color: #a88f6a;
 }
 
-li.nav-user a:visited {
+.custom-navbar a:visited {
   color: #a88f6a;
 }
 
-li.nav-user a:hover {
+.custom-navbar a:hover {
   color: #a88f6a;
   text-decoration: underline;
   background: none;
 }
 
-li.nav-logo a:hover {
+.nav-logo a:hover {
   background: none;
 }
 
@@ -412,7 +363,7 @@ li.nav-logo a:hover {
   padding-right: 20px;
   padding-bottom: 10px;
   padding-left: 20px;
-  margin: 5px;
+  /*margin: 5px;*/
   border-radius: 0;
   border: 5px double #a88f6a;
 }
