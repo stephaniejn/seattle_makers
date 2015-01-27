@@ -8,8 +8,15 @@
   <div style='text-align:center'class='row'>
     <div class='col-xs-5 col-md-4 col-xs-offset-4 col-md-offset-4'>
       <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
-      <p> <img style="width:180px" src = 'https://d13yacurqjgara.cloudfront.net/users/312581/screenshots/1676038/female-placeholder_1x.png'></p>
-      <p><%= link_to 'Upload New Photo', 'http://www.facebook.com' %></p>
+      <br>
+      <% if @user.uid.blank?%>
+        <img id ="placeholder" src = "<%=asset_path "person-placeholder.png"%>">
+      <% else %>
+      <img style="width:180px" src = "http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
+      <% end %>
+      <br>
+      <a href="/auth/facebook">Get Profile Photo from Facebook</a>
+      <br>
       <br>
       <p> <strong>Name:</strong>
         <%= @user.name %>
