@@ -20,14 +20,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    is_authenticated?
+    if is_authenticated?
     @user = User.find(params[:id])
-    if @current_user.id != @user.id
+      if @current_user.id != @user.id
       # render json: @user.id
       # flash[:danger] = "This is a private page"
       redirect_to profile_path
     else
       render @users
+      end
     end
   end
 

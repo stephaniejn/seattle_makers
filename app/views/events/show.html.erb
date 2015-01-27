@@ -15,7 +15,10 @@
         <p> <strong> Host: </strong> <%= @event.user.name%> </p>
         <p> <strong> Category: </strong> <%= @event.category.name%> </p>
         <p> <strong> Capacity: </strong> <%= @event.capacity%> </p>
-        <p> <strong> Donation Suggested? </strong> <%= @event.donation%> </p>
+        <p> <strong> Donation Suggested: </strong> <% if @event.donation == true%><%="Yes"%><%else%><%="No"%><%end%> </p>
+        <p> <strong> Date: </strong> <%= @event.date.strftime("%B %e, %Y")%> </p>
+        <p> <strong> Time: </strong> <%= @event.time.strftime("%H:%M %P")%> </p>
+        <p> <strong> Address: </strong> <%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state%> </p>
         <br>
         <br>
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
