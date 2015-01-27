@@ -7,14 +7,16 @@ class EventsController < ApplicationController
 	end
 
 	def show
-    if current_user
-      @event = Event.find_by_id(params[:id])
-      @attendees = @event.attending.count
-    else
-      @event = Event.find_by_id(params[:id])
-      @attendees = @event.attending.count
-      @logged_in = false
-    end
+		@event = Event.find_by_id(params[:id])
+		@attendees = Attend.all
+		@user = User.find_by_id(params[:id])
+	end
+
+	def attend
+		@event = Event.find_by_id(params[:id])
+		User.find_by_id(@current_user.id).attending << @event
+		# render json: params
+		redirect_to event_path(@event)
 	end
 
   def edit
