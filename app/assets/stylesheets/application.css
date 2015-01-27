@@ -212,6 +212,10 @@ body {
     padding-left: 10px;
   }
 
+  li.nav.navbar-nav {
+    padding-right: 0px;
+  }
+
   /* -- Logged-in User's Nav Bar -- */
     .nav-user {
       padding-top: 34px;

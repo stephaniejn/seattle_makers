@@ -1,25 +1,45 @@
 
 <div class='container main-container'>
 
-    <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
+  <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
 
-    <br />
-    <br />
+  <br />
+  <br />
 
-    <div class='row'>
-        <div class='col-xs-offset-4 col-md-offset-1'>
+  <div class='row'>
+    <div class='col-xs-offset-4 col-md-offset-1'>
 
-        <div class='col-xs-5 col-md-5'><img src = "<%=asset_path "placeholder.png"%>"></div>
-
-        <div style="text-align:justified" class='col-xs-5 col-md-5'><p> <strong> Event Description: </strong> <%= @event.desc%> </p>
-        <p> <strong> Host: </strong> <%= @event.user.name%> </p>
-        <p> <strong> Category: </strong> <%= @event.category.name%> </p>
-        <p> <strong> Capacity: </strong> <%= @event.capacity%> </p>
-        <p> <strong> Donation Suggested? </strong> <%= @event.donation%> </p>
+      <div class='col-xs-5 col-md-5 text-center'>
+        <img src = "<%=asset_path "placeholder.png"%>">
         <br>
+        <br>
+        <div class='row'>
+         <br>
+          <% if @logged_in == false %>
+              <%= link_to 'ATTEND EVENT', login_path, :class => 'btn btn-primary btn-disabled' %>
+            <% else %>
+            <% if @event.attending.where(id:@current_user.id).any? %>
+              <p>You're attending this event.</p>
+            <% elsif @event.capacity == @event.attending.count %>
+              <p>The capacity for this event has been reached</p>
+            <% elsif %>
+              <%= link_to 'ATTEND EVENT', event_attend_path(@event), :class => 'btn btn-primary btn-disabled', :controller => :events, :action => :attend, :method => :post %>
+            <% end %>
+          <% end %>
+         </div>
+       </div>
+
+       <div style="text-align:justified" class='col-xs-5 col-md-5'>
+        <div class='row'>
+          <h3><strong>Event Description:</h3> </strong> <%= @event.desc%>
+          <h3><strong>Host:</h3></strong> <%= @event.user.name%>
+          <h3><strong>Category:</h3></strong> <%= @event.category.name%>
+          <h3><strong>Capacity:</h3></strong> <%= @attendees %> out of <%= @event.capacity%> are attending this event.
+          <h3><strong>Donation Suggested?</h3></strong> <%= @event.donation%>
+        </div>
         <br>
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
-        </div>
       </div>
     </div>
+  </div>
 </div>
