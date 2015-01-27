@@ -10,12 +10,16 @@ class Event < ActiveRecord::Base
     presence: true,
     length: {maximum: 30}
 
-   validates :desc,
+  validates :desc,
     presence: true,
     length: {maximum: 250}
 
-    validates_presence_of :capacity, :category_id, :date, :time, :address, :city, :state
+  validates :capacity,
+    presence: true,
+    :numericality => { :greater_than => 0}
 
-    validates :donation, inclusion: [true, false]
+  validates_presence_of :category_id, :date, :time, :address, :city, :state
+
+  validates :donation, inclusion: [true, false]
 
 end
