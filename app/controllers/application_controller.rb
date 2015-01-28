@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+
+    @auth_link = Venmo.auth_link
   end
 
   def is_authenticated?

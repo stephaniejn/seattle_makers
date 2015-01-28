@@ -14,10 +14,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>
+  <script src='https://platform.venmo.com/sdk.js'></script>
   <%= csrf_meta_tags %>
 </head>
 
 <% if @current_user %>
+<a href="<%= @auth_link %>">Authenticate</a>
 
   <body>
     <div class="wrapper">

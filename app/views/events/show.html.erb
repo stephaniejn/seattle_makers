@@ -33,10 +33,11 @@
         <% else %>
         <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
         <% end %>
-        <br>
+        <br />
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
+        <br />
+        <iframe style="width: 120px; height: 33px" scrolling="no" frameborder="0" src="//platform.venmo.com/#payment-widget?recipient_id=1397129314566144218"></iframe>
       </div>
     </div>
   </div>
 </div>
-

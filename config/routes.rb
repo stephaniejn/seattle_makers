@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :events, except: [:index]
   post 'events/:id/attend' => 'events#attend', as: :event_attend
 
+  resources :payments
+  get 'venmo_callback' => 'payments#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
