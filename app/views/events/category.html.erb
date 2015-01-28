@@ -1,6 +1,6 @@
 <h1>Category: <%= @category.name %></h1>
 <div class='event-row text-center'>
-<% @event.each do |e| %>
+  <% @event.each do |e| %>
   <div class='event-div'>
     <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
     <h3><%= link_to e.title, event_path(e.id) %></h3>

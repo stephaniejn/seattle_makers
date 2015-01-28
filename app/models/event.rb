@@ -18,7 +18,15 @@ class Event < ActiveRecord::Base
     presence: true,
     :numericality => { :greater_than => 0}
 
-  validates_presence_of :category_id, :date, :time, :address, :city, :state
+  validates :date,
+    presence: true,
+    date: { after: Proc.new { Date.today }, message: 'must be after today' }
+
+
+  validates :date,
+    date: { before: Proc.new { Date.today + 1.year }, message: 'must be within the year' }
+
+  validates_presence_of :category_id, :time, :address, :city, :state
 
   validates :donation, inclusion: [true, false]
 
