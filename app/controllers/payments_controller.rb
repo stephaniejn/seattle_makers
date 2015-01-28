@@ -2,6 +2,10 @@ class PaymentsController < ApplicationController
 
 	#POST route from form on user/event page
 	def make_payment
+		@event = Event.find_by_id(params[:id])
+		puts "\n\n\n\n"
+		puts "HEY IT WORKED"
+		puts "\n\n\n\n"
 	  #  &state=4_3.
 	  #  url = Venmo.auth_link + "&state=" + params[:user_id] + "_" + params[:donate_amount]
 	  #  redirect_to url

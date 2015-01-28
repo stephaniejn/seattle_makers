@@ -22,9 +22,11 @@ Rails.application.routes.draw do
 
   resources :events, except: [:index]
   post 'events/:id/attend' => 'events#attend', as: :event_attend
-
+  resources :payments
   get 'venmo_callback' => 'payments#index'
-  post 'events/new' => 'payments#make_payment'
+  post 'events/:id' => 'payments#make_payment'
+
+
   get '*path' => redirect('/404.html')
 
 
