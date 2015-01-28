@@ -11,11 +11,11 @@
       <br>
       <% if @user.uid.blank?%>
         <img id ="placeholder" src = "<%=asset_path "person-placeholder.png"%>">
+        <p> <a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
       <% else %>
       <img style="width:180px" src = "http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
       <% end %>
       <br>
-      <a href="/auth/facebook">Get Profile Photo from Facebook</a>
       <br>
       <br>
       <p> <strong>Name:</strong>
