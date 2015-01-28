@@ -56,7 +56,7 @@
           <%= f.text_field :city, placeholder: 'Ex. Seattle' %>
         </div>
         <div>
-          <%= f.select :state, options_for_select(us_states)%>
+          <%= f.select :state, options_for_select(us_states), :prompt => "Ex. Washington"%>
         </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
