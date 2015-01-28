@@ -58,6 +58,9 @@
         <div>
           <%= f.select :state, options_for_select(us_states)%>
         </div>
+        <div>
+          <%= cl_image_upload_tag(:image_id) %>
+        </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
       </div>
