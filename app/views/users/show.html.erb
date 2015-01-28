@@ -50,17 +50,18 @@
         <% if event.date < Date.today%>
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
-         <% elsif event.date == Date.today %>
-            <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
+        <% elsif event.date == Date.today %>
+          <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
-            <% end %>
+          <% end %>
         <% end %>
       <% end %>
-  <br> <br>
 
-        <h4 style="text-align:center"> <strong>Upcoming Events I'm Attending</strong></h4>
-       <% @user.attending.each do |event| %>
+    <br> <br>
+
+    <h4 style="text-align:center"> <strong>Upcoming Events I'm Attending</strong></h4>
+      <% @user.attending.each do |event| %>
         <% if event.date > Date.today%>
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
@@ -68,10 +69,9 @@
           <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
-           <% end %>
+          <% end %>
         <% end %>
-       <% end %>
-
+      <% end %>
 
     <br> <br>
 
@@ -81,10 +81,10 @@
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
          <% elsif event.date == Date.today %>
-            <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
+          <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
           <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
           <span><%= link_to event.title, event_path(event) %></span>
-            <% end %>
+          <% end %>
         <% end %>
       <% end %>
 
