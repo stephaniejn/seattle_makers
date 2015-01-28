@@ -29,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 #Bootstrap Clean Forms
 gem 'bootstrap_form'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'date_validator', '~> 0.7.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
