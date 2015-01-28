@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  respond_to :html, :js
+
 
 	def new
 		is_authenticated?
