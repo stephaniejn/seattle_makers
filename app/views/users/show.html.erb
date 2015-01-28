@@ -29,6 +29,9 @@
         <p> <strong>Email:</strong>
           <%= @user.email %>
         </p>
+        <p> <strong>Available Credits:</strong>
+          <%= @user.tickets.count %>
+        </p>
       </div>
       <div class='col-xs-6 col-md-6'>
         <img src="<%= @piechart %>">
