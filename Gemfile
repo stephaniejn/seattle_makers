@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 #Bootstrap Clean Forms
 gem 'bootstrap_form'
 
+gem 'gchartrb'
+
 gem 'omniauth'
 
 gem 'omniauth-facebook'
