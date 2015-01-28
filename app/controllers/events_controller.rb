@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 
+
 	def new
 		is_authenticated?
 		@event = Event.new

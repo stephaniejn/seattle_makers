@@ -31,6 +31,8 @@ gem 'bootstrap_form'
 
 gem 'cloudinary'
 
+gem 'gchartrb'
+
 gem 'omniauth'
 
 gem 'omniauth-facebook'

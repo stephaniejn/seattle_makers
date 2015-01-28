@@ -5,7 +5,7 @@ class AuthController < ApplicationController
 
     if @user
       uid =request.env['omniauth.auth']['uid']
-      @user.update_attribute("uid", uid)
+      @current_user.update_attribute("uid", uid)
     end
 
     redirect_to @user

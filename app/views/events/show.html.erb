@@ -21,19 +21,19 @@
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Address: </strong> </h4><%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state, :target => "_blank" %> </p>
         <br>
         <% if @current_user %>
-        <% if @event.user_id == @current_user.id %>
-        <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
-        <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
-        <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
-        <% elsif @event.capacity == @event.attending.count %>
-        <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
-        <% elsif @current_user.tickets.length < 1 %>
-        <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
-        <% else @event.attending.where(id:@current_user.id) == nil %>
-        <%= link_to 'ATTEND EVENT', event_attend_path(@event), :class => 'btn btn-primary', :controller => :events, :action => :attend, :method => :post %>
-        <% end %>
-        <% else %>
-        <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
+          <% if @event.user_id == @current_user.id %>
+          <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
+          <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
+          <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
+          <% elsif @event.capacity == @event.attending.count %>
+          <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
+          <% else @event.attending.where(id:@current_user.id) == nil %>
+          <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
+          <% else @event.attending.where(id:@current_user.id) == nil %>
+          <%= link_to 'ATTEND EVENT', event_attend_path(@event), :remote => true, :class => 'btn btn-primary', :controller => :events, :action => :attend, :method => :post %>
+          <% end %>
+          <% else %>
+          <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
         <% end %>
         <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
         <% this_user = @event.user %>
