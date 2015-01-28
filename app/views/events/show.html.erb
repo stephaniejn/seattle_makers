@@ -14,7 +14,7 @@
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Event Description: </strong> </h4><%= @event.desc%> </p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Host: </strong> </h4> <%= @event.user.name %></p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Category: </strong> </h4>  <%= @event.category.name%></p>
-        <p class = "paragraph"> <h4 class = "event_header"> <strong> Capacity: </strong> </h4><%= @event.capacity%> </p>
+        <p class = "paragraph"> <h4 class = "event_header"> <strong> Capacity: </strong> </h4><%= @event.attending.count %> out of <%= @event.capacity%> are attending</p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Donation Suggested: </strong> </h4><% if @event.donation == true%><%="Yes"%><%else%><%="No"%><%end%> </p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Date: </strong> </h4><%= @event.date.strftime("%B %e, %Y")%> </p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Time: </strong> </h4><%= @event.time.strftime("%l:%M %P")%> </p>
