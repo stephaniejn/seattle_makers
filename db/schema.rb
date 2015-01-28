@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150128211112) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "uid"
   end
 
   create_table "votes", force: :cascade do |t|
