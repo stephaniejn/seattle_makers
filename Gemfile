@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 #Bootstrap Clean Forms
 gem 'bootstrap_form'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 #Venmo Payment Option
 gem 'venmo-api', '~> 0.0.3'
 
@@ -48,4 +50,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
 
