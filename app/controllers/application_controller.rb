@@ -5,24 +5,27 @@ class ApplicationController < ActionController::Base
 
   before_action :current_user, :category_all
 
-  # before_filter :category_all
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+    if @current_user
+      @ticket = User.find_by_id(@current_user.id).tickets.count
+    end
   end
 
   def is_authenticated?
     if !current_user
-        flash[:danger] = "You must be logged in to access that page"
-        redirect_to login_path
-        false
+      flash[:danger] = "You must be logged in to access that page"
+      redirect_to login_path
+      false
     else
-        true
+      true
     end
-  end
+end
 
   def category_all
     @category_all = Category.all
   end
+
 
 end

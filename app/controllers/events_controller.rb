@@ -42,8 +42,8 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    @user = current_user
-    @event = @user.events.create(event_params)
+    # @user = current_user
+    @event = @current_user.events.create(event_params)
     if @event.errors.any?
       flash[:danger] = "There was an error in your creation - please try again"
       render :edit
