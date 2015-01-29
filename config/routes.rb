@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   root 'sites#index'
 
   resources :users, only: [:show, :edit, :update]
@@ -27,8 +33,10 @@ Rails.application.routes.draw do
   post 'payments/send' => 'payments#make_payment', as: :send_payment
 
 
-  get '*path' => redirect('/404.html')
-
+  # get '*path' => redirect('/404.html')
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#file_not_found', via: :all
+  match '/500', to: 'errors#file_not_found', via: :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

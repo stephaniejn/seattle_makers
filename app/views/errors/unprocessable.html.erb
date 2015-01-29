@@ -1,0 +1,96 @@
+<html>
+<head>
+	<title>OOPS!</title>
+	<style type="text/css">
+		div.dialog {
+		  width: 95%;
+		  max-width: 33em;
+		  margin: 4em auto 0;
+		}
+
+		div.dialog > div {
+		  border: 1px solid #CCC;
+		  border-right-color: #999;
+		  border-left-color: #999;
+		  border-bottom-color: #BBB;
+
+		  background-color: white;
+		  padding: 7px 12% 0;
+		  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+		}
+		  @media (min-width:1921px){
+		      .doge{
+		        background: url(assets/background_internal_error.jpg) repeat center top fixed #190303;
+		        background-size:100% auto;
+		        color: #2E2F30;
+		        text-align: center;
+		        font-family: arial, sans-serif;
+		        margin: 0;
+		    }
+		  }
+
+		  /* Mointores ranging from 1367px - 1920px*/
+		  @media (min-width:1367px) and (max-width:1920px){
+		  .doge{
+		        background: url(assets/background_internal_error.jpg) repeat center top fixed #190303;
+		        background-size:100% auto;
+		        color: #2E2F30;
+		        text-align: center;
+		        font-family: arial, sans-serif;
+		        margin: 0;
+		    }
+		  }
+
+		  /* Mointores ranging from 769px - 1366px*/
+		  @media (min-width:769px) and (max-width:1366px){
+		  html, body{
+		        background: url(assets/background_internal_error.jpg)  repeat center top fixed #190303;
+		        background-size:100% auto;
+		        color: #2E2F30;
+		        text-align: center;
+		        font-family: arial, sans-serif;
+		        margin: 0;
+		    }
+		  }
+		  /* Tablets like the iPad 2 and iPad Mini*/
+		  @media (max-width:768px){
+		  html, body{
+		        background: url(assets/background_internal_error.jpg)  repeat center top fixed #190303;
+		        background-size:100% auto;
+		        color: #2E2F30;
+		        text-align: center;
+		        font-family: arial, sans-serif;
+		        margin: 0;
+		    }
+		  }
+
+		/*   At a certain point the Background images become irrelevant as they are hidden behind other elements. Changed to a solid BG*/
+		  @media handheld, only screen and (max-width: 640px) {
+		  html, body{
+		        background:#190303;
+		        color: #2E2F30;
+		        text-align: center;
+		        font-family: arial, sans-serif;
+		        margin: 0;
+		    }
+		  }
+	</style>
+</head>
+<body>
+<div class="doge">
+ <div class="dialog">
+   <div>
+     <h1 align="left"><i>We're Sorry</i></h1>
+     <h3 align="center">Something's Broken.</h3>
+     <h3 align="right"><i>Discover <%= link_to "Upcoming Events" discover_path %>!</i></h3>
+     <p>You may have mistyped the address, or the page may have moved.</p>
+     <img class="team-icon-male" style="width: 100%" src="assets/olive_404.jpg">
+     <small>Pug is worried for you.</small>
+     <p>
+       <a href="/">Go Home</a>
+     </p>
+   </div>
+ </div>
+</div>
+</body>
+</html>
