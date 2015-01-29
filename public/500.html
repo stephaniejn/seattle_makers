@@ -56,11 +56,20 @@
 
 <body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="doge">
+   <div class="dialog">
+     <div>
+       <h1 align="left"><i>We're Sorry</i></h1>
+       <h3 align="center">Something's Broken.</h3>
+       <h3 align="right"><i>Discover <%= link_to "Upcoming Events" discover_path%>!</i></h3>
+       <p>You may have mistyped the address, or the page may have moved.</p>
+       <img class="team-icon-male" style="width: 100%" src="assets/olive_404.jpg">
+       <small>Pug is worried for you.</small>
+       <p>
+         <a href="/">Go Home</a>
+       </p>
+     </div>
+   </div>
   </div>
 </body>
 </html>

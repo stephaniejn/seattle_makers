@@ -31,10 +31,11 @@ h1 {
   color: #726659;
 }
 
-.credits {
+.credits, .outside_credits {
   font-family: 'Montserrat';
   font-size: 15px;
   color: #a88f6a;
+  display: inline-block;
 }
 
 
@@ -153,6 +154,29 @@ body {
   width: 50%;
   height: 50%;
 }
+
+/* ------------ Profile Show Page ------------ */
+
+.pie-chart {
+  margin-top: 80px;
+}
+
+.event-img {
+  height: 50%;
+  width: 50%;
+}
+
+/*.event-row {
+  text-align: center;
+  min-height: 400px;
+}*/
+
+.event-cat-box {
+  padding-top: 20px;
+  margin: 20px;
+}
+
+
 
 /* ------------ Carousel ------------ */
 
@@ -317,6 +341,10 @@ footer > p {
 .fa {
   padding-right: 20px;
   padding-top: 20px;
+}
+
+.fa:hover {
+  color:#a88f6a;
 }
 
 .copyright {
