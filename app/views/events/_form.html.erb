@@ -1,16 +1,15 @@
 <% if @event.errors.any? %>
- <div id="error_explanation">
-
+<div id="error_explanation">
   <div class = "alert alert-danger">
-  <h2><%= pluralize(@event.errors.count, "error") %> prohibited this profile from being saved:</h2>
-  <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
+    <h4><%= pluralize(@event.errors.count, "error") %> prohibited this profile from being saved.</h4>
+    <!-- <ul> -->
+      <%# @event.errors.full_messages.each do |msg| %>
+      <!-- <li><%#= msg %></li> -->
+      <%# end %>
+    <!-- </ul> -->
+  </div>
 </div>
 
-</div>
 <% end %>
 
 <%= bootstrap_form_for @event do |f| %>
@@ -29,14 +28,26 @@
     <%= f.radio_button :donation, false, label: "No" %>
   </div>
   <div class="form-group">
-    <%# @categories.each do |category| %>
-    <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name"), {:prompt => "Select A Category"} %>
-    <%= f.date_field :date %>
-    <%= f.time_field :time %>
-    <%= f.text_field :address, placeholder: 'Ex. 800 Occidental Avenue South' %>
-    <%= f.text_field :city, placeholder: 'Ex. Seattle' %>
-    <%= f.select :state, options_for_select(us_states), :prompt => "Ex. Washington"%>
-    <%= cl_image_upload_tag(:image_id) %>
+    <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name", @event.category_id), {:prompt => "Select A Category"} %>
+    <div>
+      <%= f.date_field :date %>
+    </div>
+    <div>
+      <%= f.time_field :time %>
+    </div>
+    <div>
+      <%= f.text_field :address, placeholder: 'Ex. 800 Occidental Avenue South' %>
+    </div>
+    <div>
+      <%= f.text_field :city, placeholder: 'Ex. Seattle' %>
+    </div>
+    <div>
+      <%= f.select :state, us_states, :prompt => "Ex. Washington"%>
+    </div>
+    <div>
+      <!-- <%= cl_image_upload_tag(:image_id) %> -->
+      <%= f.file_field :photo %>
+    </div>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
   </div>
-<% end %>

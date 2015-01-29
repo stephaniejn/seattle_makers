@@ -8,8 +8,7 @@ class AuthController < ApplicationController
       @current_user.update_attribute("uid", uid)
     end
 
-    redirect_to user_path(@user)
-
+    redirect_to user_path(@user.id)
   end
 
   def failure

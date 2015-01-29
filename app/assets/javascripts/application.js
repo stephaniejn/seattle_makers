@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 
@@ -35,16 +34,18 @@ $(document).ready(function() {
     console.log("clicking!")
     event.preventDefault();
     event.stopPropagation();
-    var link = $(this);
-    var url = link.attr('href');
+    // alert($(ticket))
+      var link = $(this);
+      var url = link.attr('href');
 
-    $.post(url, {}, function(ticket){
-      console.log(ticket)
-      // $(".credits").html(response)
-      $(".credits").html("(" + ticket + ")")
-      $(link).html('YOU ARE ATTENDING THIS EVENT').attr("disabled", true);
+      $.post(url, {}, function(ticket){
+        console.log(ticket)
+        // $(".credits").html(response)
+        $(".credits").html("(" + ticket + ")")
+        $(link).html('YOU ARE ATTENDING THIS EVENT').attr("disabled", true);
+
     },'json');
   });
+});
 
-})
 

@@ -35,7 +35,7 @@
             <strong>Email:</strong><%= @user.email %>
           </div>
           <div class='row'>
-            <strong>Available Credits:</strong><%= @user.tickets.count %>
+            <strong>Available Tickets:</strong><%= @user.tickets.count %>
           </div>
         </div>
       <!-- Pie Chart -->
@@ -129,7 +129,7 @@
             <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
             </div>
-          <% end %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
