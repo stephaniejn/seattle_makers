@@ -14,51 +14,56 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>
+  <script src='https://platform.venmo.com/sdk.js'></script>
   <%= csrf_meta_tags %>
 </head>
 
 <% if @current_user %>
+  <body>
+    <div class="wrapper">
 
-<!-- Nav Bar w/ Current User -->
-<body>
-  <div class="wrapper container-fluid">
-    <div class="row text-center custom-navbar">
-    <div class='col-xs-5 col-s-5 col-md-5 nav-item-dropdown'>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Search Categories <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <% @category_all.each do |c| %>
-            <li><%= link_to c.name, category_path(c.id) %></a></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class='col-xs-2 col-s-2 col-md-2'>
-        <%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %>
-      </div>
-      <div class='col-xs-3 col-s-3 col-md-3 nav-item'>
-        <span class='glyphicon glyphicon-user' id='nav-user-glyph'></span>
-        <span id='nav-user-link'>&nbsp;&nbsp;<%= link_to  @current_user.name.upcase, user_path(@current_user) %></span>
-        <% if @current_user %>
-          <span class='credits'>&nbsp;&nbsp;&nbsp;&nbsp;
-            <% if @ticket > 1 %>TICKETS <% else %>TICKET<% end %> (<%= @ticket %>)
-            </span>
-        <% end %>
-      </div>
-      <div class='col-xs-2 col-s-2 col-md-2 nav-item'>
-         <span class="dropdown nav-user">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'About', about_path %></li>
-            <li><%= link_to 'Discover', discover_path %></li>
-            <li><%= link_to 'New Event', new_event_path %></li>
-            <li><a href="/logout">Sign Out<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-          </ul>
-        </span>
-      </div>
-    </div>
+      <!-- Nav Bar-->
+      <nav class="navbar" role="navigation">
+        <div class="container">
+          <nav class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse" style="height: 1px;margin: auto;text-align: center;">
+            <ul class="nav navbar-nav">
+              <li>
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      Search Categories <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <% @category_all.each do |c| %>
+                      <li><%= link_to c.name, category_path(c.id) %></a></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </form>
+              </li>
+              <li class='nav-logo'><%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %></li>
+              <li class='nav-user'><span class='glyphicon glyphicon-user' id='nav-user-glyph'></span><span id='nav-user-link'> &nbsp;&nbsp;<%= link_to  @current_user.name.upcase, user_path(@current_user) %></span></li>
+              <li class="dropdown nav-user">
+                <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify pull-right"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'ABOUT', about_path %></li>
+                  <li><%= link_to 'DISCOVER', discover_path %></li>
+                  <li><%= link_to 'NEW EVENT', new_event_path %></li>
+                  <li><a href="/logout">SIGN OUT<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </nav>
 
       <!-- Page Content -->
       <%= yield %>

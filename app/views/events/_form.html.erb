@@ -1,47 +1,32 @@
- <% if @event.errors.any? %>
- <div id="error_explanation">
-  <div class = "alert alert-danger">
-  <h2><%= pluralize(@event.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-  <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-</div>
+<% if @event.errors.any? %>
+  <div id="error_explanation">
+    <div class = "alert alert-danger">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 <% end %>
 
 <%= bootstrap_form_for @event do |f| %>
-<div class="form-group">
-  <%= f.text_field :title, placeholder: 'Ex. Build a Chair' %>
-</div>
-<div class="form-group">
-  <%= f.text_area :desc, placeholder: 'Ex. During this event, I will teach you how to build a chair from solid ash', label: "Description" %>
-</div>
-<div>
-  <%= f.text_field :capacity, placeholder: 'Ex. 10' %>
-</div>
-<div>
+  <div class="form-group">
+    <%= f.text_field :title, placeholder: 'Ex. Build a Chair' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :desc, placeholder: 'Ex. During this event, I will teach you how to build a chair from solid ash', label: "Description" %>
+  </div>
+  <div>
+    <%= f.text_field :capacity, placeholder: 'Ex. 10' %>
+  </div>
+  <div>
   Suggested Donation?
-  <%= f.radio_button :donation, true, label: "Yes" %>
-  <%= f.radio_button :donation, false, label: "No" %>
-
-       <!--  <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-default">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> $5.00
-          </label>
-          <label class="btn btn-default">
-            <input type="radio" name="options" id="option2" autocomplete="off"> $10.00
-          </label>
-          <label class="btn btn-default">
-            <input type="radio" name="options" id="option3" autocomplete="off"> $15.00
-          </label>
-        </div> -->
-      </div>
-      <div class="form-group">
-        <%# @categories.each do |category| %>
-
+    <%= f.radio_button :donation, true, label: "Yes" %>
+    <%= f.radio_button :donation, false, label: "No" %>
+  </div>
+  <div class="form-group">
         <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name"), {:prompt => "Select A Category"} %>
         <div>
           <%= f.date_field :date %>

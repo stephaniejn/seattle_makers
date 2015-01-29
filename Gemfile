@@ -39,6 +39,11 @@ gem 'omniauth-facebook'
 
 gem 'date_validator', '~> 0.7.1'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
+#Venmo Payment Option
+gem 'venmo-api', '~> 0.0.3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -55,4 +60,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
 

@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     if @current_user
       @ticket = User.find_by_id(@current_user.id).tickets.count
     end
+    @auth_link = Venmo.auth_link
   end
 
   def is_authenticated?
