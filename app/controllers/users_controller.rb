@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if is_authenticated?
     @user = User.find(params[:id])
      if @current_user.id != @user.id
-       redirect_to profile_path
+       redirect_to profile_path(user)
         else
 
 
