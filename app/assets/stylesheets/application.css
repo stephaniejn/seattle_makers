@@ -31,10 +31,11 @@ h1 {
   color: #726659;
 }
 
-.credits {
+.credits, .outside_credits {
   font-family: 'Montserrat';
   font-size: 15px;
   color: #a88f6a;
+  display: inline-block;
 }
 
 
