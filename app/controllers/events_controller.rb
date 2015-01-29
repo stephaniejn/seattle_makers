@@ -11,18 +11,11 @@ class EventsController < ApplicationController
 		@event = Event.find_by_id(params[:id])
 		@attendees = Attend.all
 		@user = User.find_by_id(params[:id])
+    image = Event.find_by_id(params[:id]).image_id
+    if image != nil
+      @event_pic = image
+    end
 	end
-
-# THERE WERE TWO ATTEND METHODS. THE ONE AT BOTTOM OF PAGE WORKS NOW. DELETE THIS ONE ONCE 100% SURE.
-
-	# def attend
-	# 	@event = Event.find_by_id(params[:id])
-	# 	User.find_by_id(@current_user.id).attending << @event
- #    # Ticket.find_by_user_id(@current_user.id).delete
- #    User.find_by_id(@current_user.id).tickets.last.destroy
-	# 	# render json: params
-	# 	redirect_to event_path(@event)
-	# end
 
   def edit
   	is_authenticated?
@@ -47,23 +40,23 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    @user = current_user
-    @event = @user.events.create(event_params)
-
-    # Cloudinary::Uploader.upload(params[:image_id])
-
-    if @event.errors.any?
-      flash[:danger] = "There was an error in your creation - please try again"
-      render :edit
-    else
-      params[:image_id].present?
-      preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
-     # Verify signature by calling preloaded.valid?
-      @event.image_id = preloaded.identifier
+    result = capture_image params[:event][:photo].path
+    # @event = @current_user.events.create(event_params)
+    @event = @current_user.events << Event.create({image_id: result['url'], title: params[:event][:title],
+                                          desc: params[:event][:desc], capacity: params[:event][:capacity],
+                                          donation: params[:event][:donation], category_id: params[:event][:category_id],
+                                          date: params[:event][:date], time: params[:event][:time],
+                                          address: params[:event][:address], city: params[:event][:city],
+                                          state: params[:event][:state]})
+    # if event.errors.any?
+    #   flash[:danger] = "There was an error in your creation - please try again"
+    #   render :edit
+    # else
       flash[:success] = "Created"
-      render json: params
       # redirect_to @event
-    end
+      redirect_to discover_path
+      # render json: result
+    # end
   end
 
   def discover
@@ -85,7 +78,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :desc, :capacity, :donation, :category_id, :date, :time, :address, :city, :state, :image_id)
+    params.require(:event).permit(:title, :desc, :capacity, :donation, :category_id, :date, :time, :address, :city, :state)
   end
 
 end
