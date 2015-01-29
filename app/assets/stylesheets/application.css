@@ -25,24 +25,11 @@ div {
   position: relative;
 }
 
-h1 {
-  font-family: 'Montserrat';
-  font-size: 27px;
-  color: #726659;
-}
-
 .credits, .outside_credits {
   font-family: 'Montserrat';
   font-size: 15px;
   color: #a88f6a;
   display: inline-block;
-}
-
-
-body {
-  font-family: 'IM Fell Double Pica';
-  font-size: 15px;
-  background-color: #fbfbfb;
 }
 
 .main-container {
@@ -54,6 +41,25 @@ body {
 .glyphicon {
   color: #726659;
 }
+
+h1 {
+  font-family: 'Montserrat';
+  font-size: 27px;
+  color: #726659;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-size: 18px;
+  color: #726659;
+}
+
+body {
+  font-family: 'IM Fell Double Pica';
+  font-size: 15px;
+  background-color: #fbfbfb;
+}
+
 
 /* ------------ Error Msg Div ------------ */
 
@@ -141,8 +147,9 @@ body {
   padding-left: 25px;
 }
 
-.team-member {
-  /*text-align: left;*/
+/* FB image */
+#fb-picture {
+  padding-bottom: 20px;
 }
 
 .team-icon {
@@ -157,8 +164,12 @@ body {
 
 /* ------------ Profile Show Page ------------ */
 
+.profile-header {
+  padding-bottom: 30px;
+}
+
 .pie-chart {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .event-img {
@@ -176,6 +187,9 @@ body {
   margin: 20px;
 }
 
+.event-div-title {
+  padding-bottom: 20;
+}
 
 
 /* ------------ Carousel ------------ */
@@ -355,7 +369,7 @@ footer > p {
   color: #000;
 }
 
-/* ------------ Links ------------ */
+/* ------------ Nav Links ------------ */
 
 li.nav-item a:link {
   color: #a88f6a;
@@ -372,7 +386,11 @@ li.nav-item a:visited {
 li.nav-item a:hover {
   color: #a88f6a;
   text-decoration: underline;
-  background: none;
+  background-color: #fbfbfb;
+}
+
+li.nav-logo a:hover {
+  background-color: #fbfbfb;
 }
 
 .custom-navbar a:link {
@@ -396,6 +414,29 @@ li.nav-item a:hover {
 .nav-logo a:hover {
   background: none;
 }
+
+/* --------- Links --------- */
+ a:link {
+  color: #726659;
+}
+
+a:visited {
+  color: #726659;
+}
+
+a:hover {
+  color: #726659;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #726659;
+}
+
+a {
+  color: #726659;
+}
+
 
 /* ------------------- button ------------------- */
 
