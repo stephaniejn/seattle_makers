@@ -20,9 +20,9 @@
         <% else %>
         <img style="width:180px" src = "http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
         <% end %>
-        <br>
-        <br>
-        <br>
+        <br />
+        <br />
+        <br />
         <p> <strong>Name:</strong>
           <%= @user.name %>
         </p>
@@ -44,11 +44,11 @@
       <h4 style="text-align:center"> <strong>Upcoming Events I'm Hosting</strong></h4>
        <% @user.events.each do |event| %>
         <% if event.date > Date.today%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
         <% elsif event.date == Date.today %>
           <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
            <% end %>
         <% end %>
@@ -60,11 +60,11 @@
     <h4 style="text-align:center"> <strong>Past Events I Hosted</strong></h4>
       <% @user.events.each do |event| %>
         <% if event.date < Date.today%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
         <% elsif event.date == Date.today %>
           <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
           <% end %>
         <% end %>
@@ -75,11 +75,11 @@
     <h4 style="text-align:center"> <strong>Upcoming Events I'm Attending</strong></h4>
       <% @user.attending.each do |event| %>
         <% if event.date > Date.today%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
         <% elsif event.date == Date.today %>
           <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
           <% end %>
         <% end %>
@@ -90,11 +90,11 @@
     <h4 style="text-align:center"> <strong>Past Events I Attended</strong></h4>
       <% @user.attending.each do |event| %>
         <% if event.date < Date.today%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
          <% elsif event.date == Date.today %>
           <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=asset_path "placeholder.png"%>">
+          <img style="width:180px" src = "<%=event.image_id%>">
           <span><%= link_to event.title, event_path(event) %></span>
           <% end %>
         <% end %>

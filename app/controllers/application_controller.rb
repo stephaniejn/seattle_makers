@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if @current_user
       @ticket = User.find_by_id(@current_user.id).tickets.count
     end
-    @auth_link = Venmo.auth_link
+    # @auth_link = Venmo.auth_link
   end
 
   def is_authenticated?
@@ -27,6 +27,10 @@ end
   def category_all
     @category_all = Category.all
   end
+
+  # def capture_image new_photo_path
+  #   Cloudinary::Uploader.upload(new_photo_path)
+  # end
 
 
 end
