@@ -35,7 +35,6 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    # @user = current_user
     @event = @current_user.events.create(event_params)
 
     # Cloudinary::Uploader.upload(params[:image_id])
@@ -44,10 +43,12 @@ class EventsController < ApplicationController
       flash[:danger] = "There was an error in your creation - please try again"
       render :edit
     else
-      # params[:image_id].present?
-      # preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
-      # Verify signature by calling preloaded.valid?
-      # @event.image_id = preloaded.identifier
+
+     #  params[:image_id].present?
+     #  preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
+     # # Verify signature by calling preloaded.valid?
+     #  @event.image_id = preloaded.identifier
+
       flash[:success] = "Created"
       # render json: params
       redirect_to @event
