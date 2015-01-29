@@ -108,6 +108,18 @@ body {
   /*border-bottom: 5px double #726659;*/
 }
 
+.event-pic {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+#index-desc {
+  margin-right: 50px;
+  padding-top: 100px;
+  border-right: 1px solid;
+  /*padding-bottom: 100px;*/
+}
+
 /* ------------ About Page ------------ */
 
 .our-story {
@@ -288,13 +300,14 @@ footer {
   /*position: absolute;*/
   height: 90px;
   width: 100%;
-  border-top: 1px solid #a88f6a;
+  /*border-top: 1px solid #a88f6a;*/
   bottom: 0;
 }
 
 footer.container-fluid {
   padding-right: 0px;
   padding-left: 0px;
+  border-top: 1px solid #a88f6a;
 }
 
 footer > p {
@@ -305,6 +318,10 @@ footer > p {
 .fa {
   padding-right: 20px;
   padding-top: 20px;
+}
+
+.fa:hover {
+  color:#a88f6a;
 }
 
 .copyright {

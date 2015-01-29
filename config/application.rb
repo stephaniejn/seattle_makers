@@ -16,6 +16,9 @@ Bundler.require(*Rails.groups)
 
 module SeattleMakers
   class Application < Rails::Application
+    config.exceptions_app = self.routes
+    require 'dotenv'
+    Dotenv.load
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
