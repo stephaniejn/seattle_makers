@@ -85,6 +85,7 @@ class EventsController < ApplicationController
       format.json {render json: ticket}
       format.html {redirect_to event_path(@event)}
     end
+  end
 
   private
 
