@@ -15,6 +15,11 @@
  *= require rails_bootstrap_forms
  */
 
+/*Events Show Page*/
+.payment {
+  font-weight: bold;
+  width: 60%;
+}
 
 div {
   /*border: 1px solid #000;*/
