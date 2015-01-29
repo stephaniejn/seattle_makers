@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    # result = capture_image params[:event][:photo].path
+    result = capture_image params[:event][:photo].path
 
     @event = @current_user.events.create(event_params)
 

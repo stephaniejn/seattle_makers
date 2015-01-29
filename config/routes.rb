@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post 'payments/send' => 'payments#make_payment', as: :send_payment
 
 
-  # get '*path' => redirect('/404.html'), via: :all
+  get '*path' => redirect('/404.html'), via: :all
 
 
   # The priority is based upon order of creation: first created -> highest priority.
