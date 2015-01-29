@@ -3,7 +3,7 @@
     <%= render "shared/flash" %>
   </div>
 </div>
-
+<br>
 <div class='container main-container'>
 
   <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
@@ -44,13 +44,13 @@
           <% if @event.user_id == @current_user.id %>
           <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
           <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
-          <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
+          <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary attnd-event" %>
           <% elsif @event.capacity == @event.attending.count %>
           <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
           <% elsif @current_user.tickets.length < 1 %>
           <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
           <% else @event.attending.where(id:@current_user.id) == nil %>
-          <%= link_to 'ATTEND EVENT', event_attend_path(@event), :id => 'attend-ajax', :remote => true, :class => 'btn btn-primary', :controller => :events, :action => :attend, :method => :post %>
+          <%= link_to 'ATTEND EVENT', event_attend_path(@event), :remote => true, :class => 'btn btn-primary ajax-button', :controller => :events, :action => :attend, :method => :post %>
           <% end %>
           <% else %>
           <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>

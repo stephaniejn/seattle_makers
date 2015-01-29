@@ -68,12 +68,13 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     User.find_by_id(@current_user.id).attending << @event
     Ticket.find_by_user_id(@current_user.id).delete
-    redirect_to event_path(@event)
-  end
+    @ticket = User.find_by_id(@current_user.id).tickets.count
+    ticket = @ticket
 
-  private
-  def event_params
-    params.require(:event).permit(:title, :desc, :capacity, :donation, :category_id, :date, :time, :address, :city, :state)
+    respond_to do |format|
+      format.json {render json: ticket}
+      format.html {redirect_to event_path(@event)}
+    end
   end
 
 end

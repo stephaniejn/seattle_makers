@@ -142,6 +142,27 @@ body {
   height: 50%;
 }
 
+/* ------------ Profile Show Page ------------ */
+
+.pie-chart {
+  margin-top: 80px;
+}
+
+.event-img {
+  height: 50%;
+  width: 50%;
+}
+
+.event-div {
+  /*padding: 5px;*/
+}
+
+.attend-host-events {
+  text-align: center;
+  min-height: 400px;
+}
+
+
 /* ------------ Carousel ------------ */
 
 #header-carousel {
