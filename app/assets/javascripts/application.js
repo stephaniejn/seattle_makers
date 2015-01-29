@@ -30,8 +30,7 @@ $(document).ready(function() {
       .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
   });
 
-  $('.ajax-button').on('click', function(event)
-  {
+  $('.ajax-button').on('click', function(event) {
     console.log("clicking!")
     event.preventDefault();
     event.stopPropagation();
@@ -48,4 +47,5 @@ $(document).ready(function() {
     },'json');
   });
 });
+
 

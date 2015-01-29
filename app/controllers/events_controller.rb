@@ -16,12 +16,6 @@ class EventsController < ApplicationController
     end
 	end
 
-	def attend
-		@event = Event.find_by_id(params[:id])
-		User.find_by_id(@current_user.id).attending << @event
-		redirect_to event_path(@event)
-	end
-
   def edit
   	is_authenticated?
     @event = Event.find(params[:id])
@@ -45,7 +39,7 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    result = capture_image params[:event][:photo].path
+    # result = capture_image params[:event][:photo].path
 
     @event = @current_user.events.create(event_params)
 
@@ -59,6 +53,12 @@ class EventsController < ApplicationController
       flash[:danger] = "There was an error in your creation - please try again"
       render :edit
     else
+
+     #  params[:image_id].present?
+     #  preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
+     # # Verify signature by calling preloaded.valid?
+     #  @event.image_id = preloaded.identifier
+
       flash[:success] = "Created"
       redirect_to @event
     end
@@ -84,10 +84,10 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json {render json: ticket}
       format.html {redirect_to event_path(@event)}
-      end
-  end
+    end
 
   private
+
   def event_params
     params.require(:event).permit(:title, :desc, :capacity, :donation, :category_id, :date, :time, :address, :city, :state)
   end
