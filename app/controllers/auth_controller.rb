@@ -8,13 +8,13 @@ class AuthController < ApplicationController
       @current_user.update_attribute("uid", uid)
     end
 
-    redirect_to @user
+    redirect_to user_path(@user)
 
   end
 
   def failure
     flash[:danger] = "An error occured - please try to upload your photo again"
-    redirect_to @user
+    redirect_to redirect_to user_path(@user)
   end
 
 end
