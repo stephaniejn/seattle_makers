@@ -41,22 +41,20 @@ class EventsController < ApplicationController
     is_authenticated?
     @categories = Category.all
     result = capture_image params[:event][:photo].path
-    # @event = @current_user.events.create(event_params)
-    @event = @current_user.events << Event.create({image_id: result['url'], title: params[:event][:title],
-                                          desc: params[:event][:desc], capacity: params[:event][:capacity],
-                                          donation: params[:event][:donation], category_id: params[:event][:category_id],
-                                          date: params[:event][:date], time: params[:event][:time],
-                                          address: params[:event][:address], city: params[:event][:city],
-                                          state: params[:event][:state]})
-    # if event.errors.any?
-    #   flash[:danger] = "There was an error in your creation - please try again"
-    #   render :edit
-    # else
+
+    @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
+                          desc: params[:event][:desc], capacity: params[:event][:capacity],
+                          donation: params[:event][:donation], category_id: params[:event][:category_id],
+                          date: params[:event][:date], time: params[:event][:time],
+                          address: params[:event][:address], city: params[:event][:city],
+                          state: params[:event][:state]})
+    if @event.errors.any?
+      flash[:danger] = "There was an error in your creation - please try again"
+      render :edit
+    else
       flash[:success] = "Created"
-      # redirect_to @event
-      redirect_to discover_path
-      # render json: result
-    # end
+      redirect_to @event
+    end
   end
 
   def discover
