@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
-  get 'payments/venmo_callback' => 'payments#venmo_callback'
-  post 'payments/send' => 'payments#make_payment', as: :send_payment
+  # get 'payments/venmo_callback' => 'payments#venmo_callback'
+  # post 'payments/send' => 'payments#make_payment', as: :send_payment
 
 
   # get '*path' => redirect('/404.html'), via: :all
