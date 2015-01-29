@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -42,7 +41,9 @@
         <span class='glyphicon glyphicon-user' id='nav-user-glyph'></span>
         <span id='nav-user-link'>&nbsp;&nbsp;<%= link_to  @current_user.name.upcase, user_path(@current_user) %></span>
         <% if @current_user %>
-          <span class='credits'>&nbsp;&nbsp;&nbsp;&nbsp;<% if @ticket > 1 %>TICKETS<%else %>TICKET<% end %> (<%= @ticket %>)</span>
+          <span class="outside_credits">&nbsp;&nbsp;&nbsp;&nbsp;<% if @ticket > 1 %>TICKETS<%else %>TICKET<% end %>
+          <div class='credits'>(<%= @ticket %>)</div>
+          </span>
         <% end %>
       </div>
       <div class='col-xs-2 col-s-2 col-md-2 nav-item'>
@@ -132,5 +133,3 @@
   </html>
 
   <% end %>
-
-

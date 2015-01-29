@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
   root 'sites#index'
-
   resources :users, only: [:show, :edit, :update]
 
   get "about" => "sites#about"
   get "test" => "sites#test"
-  get "/signup" => 'users#new'
-  post "/signup" => 'users#create'
+  get "signup" => 'users#new'
+  post "signup" => 'users#create'
 
   get 'users/profile/:id' => 'users#other_user_profile', as: :profile
 
@@ -25,6 +24,13 @@ Rails.application.routes.draw do
 
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
+
+  get 'payments/venmo_callback' => 'payments#venmo_callback'
+  post 'payments/send' => 'payments#make_payment', as: :send_payment
+
+
+  get '*path' => redirect('/404.html'), via: :all
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
