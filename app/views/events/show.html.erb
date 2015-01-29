@@ -19,9 +19,11 @@
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Date: </strong> </h4><%= @event.date.strftime("%B %e, %Y")%> </p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Time: </strong> </h4><%= @event.time.strftime("%l:%M %P")%> </p>
         <p class = "paragraph"> <h4 class = "event_header"> <strong> Address: </strong> </h4><%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state, :target => "_blank" %> </p>
-        <br>
+        <br />
         <% if @current_user %>
-          <% if @event.user_id == @current_user.id %>
+          <% if @event.date < Date.today %>
+           <h3> This event has passed. <%=link_to "Discover", discover_path%> other exciting events in your area! </h3>
+          <% elsif @event.user_id == @current_user.id %>
           <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
           <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
           <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
@@ -36,10 +38,10 @@
           <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
         <% end %>
         <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
-        <% this_user = @event.user %>
-        <% this_user.tickets << Ticket.create() %>
+          <% this_user = @event.user %>
+          <% this_user.tickets << Ticket.create() %>
         <% end %>
-        <br>
+        <br />
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
       </div>
     </div>

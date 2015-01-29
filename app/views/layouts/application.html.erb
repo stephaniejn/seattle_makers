@@ -42,7 +42,9 @@
         <span class='glyphicon glyphicon-user' id='nav-user-glyph'></span>
         <span id='nav-user-link'>&nbsp;&nbsp;<%= link_to  @current_user.name.upcase, user_path(@current_user) %></span>
         <% if @current_user %>
-          <span class='credits'>&nbsp;&nbsp;&nbsp;&nbsp;CREDITS (<%= @ticket %>)</span>
+          <span class='credits'>&nbsp;&nbsp;&nbsp;&nbsp;
+            <% if @ticket > 1 %>TICKETS <% else %>TICKET<% end %> (<%= @ticket %>)
+            </span>
         <% end %>
       </div>
       <div class='col-xs-2 col-s-2 col-md-2 nav-item'>
@@ -108,11 +110,11 @@
       </nav>
 
       <!-- Page Content -->
-      <!-- <div class='col-md-4 col-sm-4 col-md-offset-4'>
+      <div class='col-md-4 col-sm-4 col-md-offset-4'>
         <div class='error-msg text-center'>
           <%= render "shared/flash" %>
         </div>
-      </div> -->
+      </div>
       <%= yield %>
       <!-- End Page Content -->
       <footer>
