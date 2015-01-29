@@ -59,7 +59,7 @@
           <%= f.select :state, options_for_select(us_states), :prompt => "Ex. Washington"%>
         </div>
         <div>
-          <!-- <%= cl_image_upload_tag(:image_id) %> -->
+          <!-- <%= cl_image_upload_tag(:photo) %> -->
           <%= f.file_field :photo %>
         </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
