@@ -39,26 +39,17 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    # result = capture_image params[:event][:photo].path
-
-    @event = @current_user.events.create(event_params)
-
-    # @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
-    #                       desc: params[:event][:desc], capacity: params[:event][:capacity],
-    #                       donation: params[:event][:donation], category_id: params[:event][:category_id],
-    #                       date: params[:event][:date], time: params[:event][:time],
-    #                       address: params[:event][:address], city: params[:event][:city],
-    #                       state: params[:event][:state]})
+    result = capture_image params[:event][:photo].path
+    @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
+                          desc: params[:event][:desc], capacity: params[:event][:capacity],
+                          donation: params[:event][:donation], category_id: params[:event][:category_id],
+                          date: params[:event][:date], time: params[:event][:time],
+                          address: params[:event][:address], city: params[:event][:city],
+                          state: params[:event][:state]})
     if @event.errors.any?
       flash[:danger] = "There was an error in your creation - please try again"
       render :edit
     else
-
-     #  params[:image_id].present?
-     #  preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
-     # # Verify signature by calling preloaded.valid?
-     #  @event.image_id = preloaded.identifier
-
       flash[:success] = "Created"
       redirect_to @event
     end
