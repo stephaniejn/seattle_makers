@@ -349,6 +349,10 @@ footer > p {
   padding-top: 20px;
 }
 
+.fa:hover {
+  color:#a88f6a;
+}
+
 .copyright {
   padding-top: 25px;
 }

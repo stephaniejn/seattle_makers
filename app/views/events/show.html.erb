@@ -9,7 +9,7 @@
       <img src = "<%=asset_path "placeholder.png"%>">
       <h4>Donate to <%= @event.user.name %> For This Event</h4>
       <%= bootstrap_form_for :payment, url: send_payment_path, html: { value: "edit_post" } do |f| %>
-        <%= f.select :amount, { "Donate $5.00" => "5.00", "Donate $10.00" => "10.00", "Donate $15.00" => "15.00" } %>
+        <%= f.select :amount, { "Donate $5.00 (Success - 0.10)" => "0.10", "Donate $10.00 (Failure - 0.20)" => "0.20", "Donate $15.00" => "15.00" } %>
         <%= f.hidden_field :user, value: @event.user.id %>
         <%= f.hidden_field :event, value: @event.id %>
         <%= f.submit "Send Payment" %>
