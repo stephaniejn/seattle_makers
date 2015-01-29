@@ -15,7 +15,6 @@ class EventsController < ApplicationController
 	def attend
 		@event = Event.find_by_id(params[:id])
 		User.find_by_id(@current_user.id).attending << @event
-		# render json: params
 		redirect_to event_path(@event)
 	end
 

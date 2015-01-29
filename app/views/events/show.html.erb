@@ -3,10 +3,17 @@
   </h1>
   <br />
   <br />
+  <%= render "shared/flash" %>
   <div class='row'>
     <div class='col-xs-offset-4 col-md-offset-1'>
       <div class='col-xs-5 col-md-5'>
         <img src = "<%=asset_path "placeholder.png"%>">
+        <%= bootstrap_form_for :payment, url: send_payment_path do |f| %>
+          <%= f.select :amount, { "Donate $5.00" => "5.00", "Donate success" => "0.10", "Donate failure" => "0.20" } %>
+          <%= f.hidden_field :user, value: @event.user.id %>
+          <%= f.hidden_field :event, value: @event.id %>
+          <%= f.submit "Send Payment" %>
+        <% end %>
       </div>
       <div style="text-align:justified" class='col-xs-5 col-md-5'>
         <p class="paragraph">
@@ -66,7 +73,7 @@
           <h4 class="event_header">
             <strong> Address: </strong>
           </h4>
-        <%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state, :target => "_blank" %>
+        <%= link_to @event.address+', '+@event.city+', '+ @event.state,'http://maps.google.com/?q='+@event.address+', '+@event.city+', ' +@event.state,:target => "_blank" %>
         </p>
 
         <br />
@@ -86,7 +93,6 @@
         <br />
         <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
         <br />
-        <iframe style="width: 120px; height: 33px" scrolling="no" frameborder="0" src="//platform.venmo.com/#payment-widget?recipient_id=1397129314566144218"></iframe>
       </div>
     </div>
   </div>

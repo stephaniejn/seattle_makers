@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   get "about" => "sites#about"
   get "test" => "sites#test"
-  get "/signup" => 'users#new'
-  post "/signup" => 'users#create'
+  get "signup" => 'users#new'
+  post "signup" => 'users#create'
 
   get 'users/profile/:id' => 'users#other_user_profile', as: :profile
 
@@ -22,9 +22,9 @@ Rails.application.routes.draw do
 
   resources :events, except: [:index]
   post 'events/:id/attend' => 'events#attend', as: :event_attend
-  resources :payments
-  get 'venmo_callback' => 'payments#index'
-  post 'events/:id' => 'payments#make_payment'
+
+  get 'payments/venmo_callback' => 'payments#venmo_callback'
+  post 'payments/send' => 'payments#make_payment', as: :send_payment
 
 
   get '*path' => redirect('/404.html')
