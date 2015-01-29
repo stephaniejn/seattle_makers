@@ -31,6 +31,5 @@ $(document).ready(function() {
       .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
   });
 
-  $('#attend-btn')
 
 })
