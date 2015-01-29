@@ -153,14 +153,16 @@ body {
   width: 50%;
 }
 
-.event-div {
-  /*padding: 5px;*/
-}
-
-.attend-host-events {
+/*.event-row {
   text-align: center;
   min-height: 400px;
+}*/
+
+.event-cat-box {
+  padding-top: 20px;
+  margin: 20px;
 }
+
 
 
 /* ------------ Carousel ------------ */
