@@ -26,10 +26,9 @@ class UsersController < ApplicationController
   def show
     if is_authenticated?
     @user = User.find(params[:id])
-     if @current_user.id != @user.id
-       redirect_to profile_path
-        else
-
+    if @current_user.id != @user.id
+      redirect_to profile_path
+    else
 
       # ---------- Start Google Chart Gem ---------- #
       pc = GoogleChart::PieChart.new('420x200', "Attended Categories", false) do |pc|
@@ -80,7 +79,6 @@ class UsersController < ApplicationController
         end
       end
     end
-
     # ---------- End Google Chart Gem ---------- #
   end
 
