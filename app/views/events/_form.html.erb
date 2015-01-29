@@ -42,7 +42,7 @@
       <div class="form-group">
         <%# @categories.each do |category| %>
 
-        <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name"), {:prompt => "Select A Category"} %>
+        <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name", @event.category.id), {:prompt => "Select A Category"} %>
         <div>
           <%= f.date_field :date %>
         </div>
@@ -56,7 +56,7 @@
           <%= f.text_field :city, placeholder: 'Ex. Seattle' %>
         </div>
         <div>
-          <%= f.select :state, options_for_select(us_states), :prompt => "Ex. Washington"%>
+          <%= f.select :state, us_states, :prompt => "Ex. Washington"%>
         </div>
         <div>
           <%= cl_image_upload_tag(:image_id) %>
