@@ -22,7 +22,7 @@
 <body>
   <div class="wrapper">
     <div class="row text-center custom-navbar">
-    <div class='col-xs-5 col-s-5 col-md-5 nav-item-dropdown'>
+      <div class='col-xs-5 col-s-5 col-md-5 nav-item-dropdown'>
         <div class="btn-group">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             Search Categories <span class="caret"></span>
@@ -78,58 +78,59 @@
       </footer>
     </div>
   </body>
-  </html>
+</html>
 
   <% else %>
 
-<!-- Nav Bar w/ Current User -->
+<!-- Nav Bar w/out Current User -->
   <body>
     <div class="wrapper">
-      <!-- Nav Bar-->
-      <nav class="navbar" role="navigation">
-        <div class="container">
-          <nav class="navbar-header" >
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="navbar-collapse collapse" style="height: 1px;margin: auto;text-align: center;">
-            <ul class="nav navbar-nav">
-              <li class='nav-item'><%= link_to 'ABOUT', about_path %></li>
-              <li class='nav-item'><%= link_to 'DISCOVER', discover_path %></a></li>
-              <li class='nav-logo'><%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %></li>
-              <li class='nav-item'><%= link_to 'LOGIN', login_path %></a></li></li>
-              <li class='nav-item'><%= link_to 'SIGNUP', signup_path %></a></li></li>
-            </ul>
-          </div>
+      <div class="row text-center custom-navbar">
+        <nav class="navbar" role="navigation">
+          <div class="container">
+            <nav class="navbar-header" >
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;margin: auto;text-align: center;">
+              <ul class="nav navbar-nav">
+                <li class='nav-item'><%= link_to 'ABOUT', about_path %></li>
+                <li class='nav-item'><%= link_to 'DISCOVER', discover_path %></a></li>
+                <li class='nav-logo'><%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %></li>
+                <li class='nav-item'><%= link_to 'LOGIN', login_path %></a></li></li>
+                <li class='nav-item'><%= link_to 'SIGNUP', signup_path %></a></li></li>
+              </ul>
+            </div>
+          </nav>
         </nav>
-      </nav>
 
-      <!-- Page Content -->
-      <div class='col-md-4 col-sm-4 col-md-offset-4'>
-        <div class='error-msg text-center'>
-          <%= render "shared/flash" %>
+        <!-- Page Content -->
+        <div class='col-md-4 col-sm-4 col-md-offset-4'>
+          <div class='error-msg text-center'>
+            <%= render "shared/flash" %>
+          </div>
         </div>
+        <%= yield %>
+        <!-- End Page Content -->
+        <footer class='container-fluid'>
+          <div class="col-md-12 col-sm-12">
+            <div class="copyright col-md-3 col-sm-3">
+              <p>Copyright &copy 2015</p>
+            </div>
+            <div class="glyph col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-3">
+              <a href="https://github.com/CestLou/seattle_makers"><i class="fa fa-github fa-3x"></i></a>
+              <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
+              <a href="#"><i class="fa fa-instagram fa-3x"></i></a>
+            </div>
+          </div>
+        </footer>
       </div>
-      <%= yield %>
-      <!-- End Page Content -->
-      <footer>
-        <div class="col-md-12 col-sm-12">
-          <div class="copyright col-md-3 col-sm-3">
-            <p>Copyright &copy 2015</p>
-          </div>
-          <div class="glyph col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-3">
-            <a href="https://github.com/CestLou/seattle_makers"><i class="fa fa-github fa-3x"></i></a>
-            <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
-            <a href="#"><i class="fa fa-instagram fa-3x"></i></a>
-          </div>
-        </div>
-      </footer>
     </div>
   </body>
-  </html>
+</html>
 
   <% end %>
