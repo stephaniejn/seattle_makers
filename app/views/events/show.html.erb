@@ -58,7 +58,7 @@
           <% elsif @event.user_id == @current_user.id %>
           <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
           <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
-          <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary attnd-event" %>
+          <%= link_to 'UN-ATTEND EVENT', event_un_attend_path(@event), :class => 'btn btn-primary ajax2-button', :controller => :events, :action => :un_attend, :method => :post %>
           <% elsif @event.capacity == @event.attending.count %>
           <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
           <% elsif @current_user.tickets.length < 1 %>

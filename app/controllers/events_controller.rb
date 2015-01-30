@@ -98,6 +98,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def un_attend
+    @event = Event.find_by_id(params[:id])
+    User.find_by_id(@current_user.id).tickets << Ticket.create()
+    Attend.find_by_user_id(@current_user.id).delete
+    @ticket = User.find_by_id(@current_user.id).tickets.count
+    ticket = @ticket
+
+    respond_to do |format|
+      format.json {render json: ticket}
+      format.html {redirect_to event_path(@event)}
+    end
+  end
+
   private
 
   def event_params
