@@ -184,10 +184,9 @@ body {
   width: 50%;
 }
 
-/*.event-row {
-  text-align: center;
-  min-height: 400px;
-}*/
+.event-row {
+  min-height: 700px;
+}
 
 .event-cat-box {
   padding-top: 20px;
