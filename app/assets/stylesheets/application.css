@@ -78,6 +78,12 @@ h2 {
   color: #726659;
 }
 
+h4 {
+    font-family: 'Montserrat';
+  font-size: 18px;
+  color: #726659;
+}
+
 body {
   font-family: 'IM Fell Double Pica';
   font-size: 15px;
@@ -364,7 +370,7 @@ div.modal-footer {
   font-family: 'Montserrat';
   font-size: 15px;
   letter-spacing: 1px;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .nav.navbar-nav li.nav-item {
@@ -385,7 +391,7 @@ li.nav.navbar-nav {
   font-size: 15px;
   letter-spacing: 1px;
   color: #726659;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .nav-item {
@@ -499,7 +505,7 @@ li.nav-item a:visited {
 li.nav-item a:hover {
   color: #a88f6a;
   text-decoration: underline;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 li.nav-logo a:hover {
@@ -622,9 +628,13 @@ fieldset[disabled] .btn-primary.active {
 /* ------------------- discover ------------------- */
 
 
-.category-h3 h3 {
+.category-h3 {
   display: inline-block;
+  padding-top: 20px;
   padding-right: 20px;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  color: #726659;
 }
 
 /* ------------------ media queries ------------ */

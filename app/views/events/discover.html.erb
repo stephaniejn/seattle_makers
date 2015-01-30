@@ -3,7 +3,7 @@
 <div class='container main-container'>
   <div class="category-h3">
     <% @category.each do |c| %>
-    <h3><%= link_to c.name, category_path(c.id) %></h3>
+    <%= link_to c.name, category_path(c.id) %>
     <% end %>
   </div>
 
