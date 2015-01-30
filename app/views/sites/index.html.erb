@@ -2,7 +2,10 @@
 <!-- Carousel-->
 <div class="overlay text-center"><h1 id='overlay-text'>SEATTLE TRADING POST:<br/>Hands Dirty Since 2015.</h1><br />
   <button type="button" class="btn btn-primary" id="discover-btn">DISCOVER</button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
+  <% if @current_user %>
+  <% else %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
+  <% end %>
 </div>
 <div id="header-carousel" class='carousel slide' data-ride='carousel' data-interval='false'>
 <div class="row">
@@ -124,12 +127,11 @@
         <% end %>
         <!-- Login Modal Form -->
         <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal">
-          <h1> Login </h1>
+          <h1>Login</h1>
           <%= bootstrap_form_for @user, url: login_path do |f| %>
-          <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
-          <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
+          <%= f.text_field :email, :placeholder => "Email", icon: "user" %>
           <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
-          <%= f.submit :class=>'btn btn-primary'%>   <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <%= f.submit "login", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
