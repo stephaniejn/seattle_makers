@@ -38,7 +38,7 @@ $(document).ready(function() {
     $.post(url, {}, function(ticket){
       console.log(ticket)
       $(".credits").html("(" + ticket + ")")
-      $(link).html('YOU ARE ATTENDING THIS EVENT').attr("disabled", true);
+      $(link).html('YOU ARE ATTENDING').attr("disabled", true);
     },'json');
   });
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
     $.post(url, {}, function(ticket){
       console.log(ticket)
       $(".credits").html("(" + ticket + ")")
-      $(link).html('YOU ARE NO LONGER ATTENDING THIS EVENT').attr("disabled", true);
+      $(link).html('YOU ARE NOT ATTENDING').attr("disabled", true);
     },'json');
   });
 

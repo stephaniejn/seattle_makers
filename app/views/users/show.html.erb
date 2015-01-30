@@ -6,9 +6,9 @@
 </div>
 
 <!-- Profile Header -->
-<div class='main-container'>
-  <div class='col-xs-12 col-md-12 profile-header text-center'>
-    <h1>My Profile</h1>
+<div class='main-container col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1 profile-content-div'>
+  <div class='row profile-header text-center'>
+    <h1><%= @user.name %>'s Profile</h1>
   </div>
 
   <!-- ##### Profile Picture, FB & Edit Button ##### -->
@@ -17,10 +17,10 @@
           <!-- Profile Image -->
           <div class='row'>
             <% if @user.uid.blank?%>
-              <img id ="placeholder" src="<%=asset_path "person-placeholder.png"%>">
+              <img id="placeholder" src="<%=asset_path "person-placeholder.png"%>">
               <p><a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
             <% else %>
-              <img style="width:180px" src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
+              <img style="width:250px" src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large" id='fb-picture'>
             <% end %>
           </div>
           <!-- Profile Image -->
@@ -40,7 +40,7 @@
         </div>
       <!-- Pie Chart -->
       <div class='col-xs-6 col-md-6 text-center pie-chart'>
-        <img src="<%= @piechart %>">
+        <img src="<%= @piechart %>" class='piechart-img'>
       </div>
     </div>
 
@@ -50,12 +50,12 @@
     <div class='col-xs-6 col-md-6 text-center'>
     <!-- UPCOMMING Events Hosted -->
       <div class='row event-cat-box'>
-      <h2><strong>Upcoming Events I'm Hosting</strong></h2>
+      <h2 class='event-div-title'><strong>Upcoming Events I'm Hosting</strong></h2>
         <% @user.events.each do |event| %>
           <% if event.date > Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -65,7 +65,7 @@
             <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
               <div class='col-xs-3 col-md-3'>
                 <div class='row'>
-                  <img src="<%=event.image_id%>" class='event-img'>
+                  <img src="<%=event.image_id%>" class='event-img-profile'>
                 </div>
               </div>
               <div class='row'>
@@ -77,12 +77,12 @@
       </div>
     <!-- UPCOMMING Events Attended -->
     <div class='row event-cat-box'>
-    <h2><strong>Upcoming Events I'm Attending</strong></h2>
+    <h2 class='event-div-title'><strong>Upcoming Events I'm Attending</strong></h2>
         <% @user.attending.each  do |event| %>
           <% if event.date > Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -92,7 +92,7 @@
             <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
               <div class='col-xs-3 col-md-3'>
                 <div class='row'>
-                  <img src="<%=event.image_id%>" class='event-img'>
+                  <img src="<%=event.image_id%>" class='event-img-profile'>
                 </div>
               </div>
               <div class='row'>
@@ -108,7 +108,7 @@
     <div class='col-xs-6 col-md-6 text-center'>
       <!-- PAST Events Hosted -->
       <div class='row event-cat-box'>
-      <h2><strong>Past Events I've Hosted</strong></h2>
+      <h2 class='event-div-title'><strong>Past Events I've Hosted</strong></h2>
         <% @user.events.each do |event| %>
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>
@@ -135,7 +135,7 @@
       </div>
       <!-- PAST Events Attended -->
       <div class='row event-cat-box'>
-      <h2><strong>Past Events I've Attended</strong></h2>
+      <h2 class='event-div-title'><strong>Past Events I've Attended</strong></h2>
         <% @user.attending.each do |event| %>
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>

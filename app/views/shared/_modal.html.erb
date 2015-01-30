@@ -1,0 +1,68 @@
+<!-- Sign-up Modal -->
+<div class="modal fade" id="makerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><h1>SEATTLE TRADING POST</h1></h4>
+      </div>
+      <!-- Sign-Up Modal Body -->
+      <div class="modal-body">
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <div class = "alert alert-danger"
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          </div>
+        </div>
+        <% end %>
+        <!-- Sign-Up Modal Form -->
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal text-left">
+          <h1> New User </h1>
+          <%= bootstrap_form_for @user, url: signup_path do |f| %>
+          <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
+          <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
+          <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+          <%= f.password_field :password_confirmation, :placeholder => "Enter password confirmation", icon: "lock"  %>
+          <%= f.submit :class=>'btn btn-primary'%>   <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <% end %>
+        </div>
+      </div>
+      <!-- Sign-Up End Modal Body -->
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><h1>SEATTLE TRADING POST</h1></h4>
+      </div>
+      <!-- Login Modal Body -->
+      <div class="modal-body">
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <div class = "alert alert-danger"
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          </div>
+        </div>
+        <% end %>
+        <!-- Login Modal Form -->
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal text-left">
+          <h1>Login</h1>
+          <%= bootstrap_form_for @user, url: login_path do |f| %>
+          <%= f.text_field :email, :placeholder => "Email", icon: "user" %>
+          <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+          <%= f.submit "login", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+      <!-- Login End Modal Body -->
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
