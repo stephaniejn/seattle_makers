@@ -16,12 +16,13 @@
         </div>
         <% end %>
         <!-- Sign-Up Modal Form -->
-        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal">
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal text-left">
           <h1> New User </h1>
           <%= bootstrap_form_for @user, url: signup_path do |f| %>
           <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
           <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
           <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+          <%= f.password_field :password_confirmation, :placeholder => "Enter password confirmation", icon: "lock"  %>
           <%= f.submit :class=>'btn btn-primary'%>   <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
           <% end %>
         </div>
@@ -50,7 +51,7 @@
         </div>
         <% end %>
         <!-- Login Modal Form -->
-        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal">
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal text-left">
           <h1>Login</h1>
           <%= bootstrap_form_for @user, url: login_path do |f| %>
           <%= f.text_field :email, :placeholder => "Email", icon: "user" %>

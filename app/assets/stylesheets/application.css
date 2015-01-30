@@ -37,13 +37,32 @@ div {
   display: inline-block;
 }
 
+body {
+  font-family: 'IM Fell Double Pica';
+  font-size: 15px;
+  background-color: #fbfbfb;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 .main-container {
   padding-top: 70px;
   padding-bottom: 140px;
   min-height: 600px;
 }
 
-.glyphicon {
+.glyph a {
+  color: #000;
+}
+
+.glyph a:hover {
+  color: #726659;
+}
+
+#nav-user-glyph {
   color: #726659;
 }
 
@@ -107,21 +126,21 @@ body {
 .event-div {
   margin-top: 20px;
   margin-bottom: 30px;
-  display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
+  display: inline-block;
   border: .13em solid #726659;
+  height: 250px;
+  width: 301px;
+  background-color: #f3eadc;
   /*background-color: #a88f6a;*/
 }
 
 .event-img {
   border-bottom: 1px double #726659;
-  /*border-bottom: 5px double #726659;*/
-}
-
-.event-pic {
-  max-width: 300px;
   max-height: 200px;
+  max-width: 300px;
+  /*border-bottom: 5px double #726659;*/
 }
 
 div.modal-footer {
@@ -188,6 +207,10 @@ div.modal-footer {
   margin-top: 20px;
 }
 
+#index-desc div div.col-xs-5.col-md-5 p {
+  padding-top: 100px;
+}
+
 
 /* ------------ About Page ------------ */
 
@@ -249,15 +272,14 @@ div.modal-footer {
   border-radius: 30px;
 }
 
-.event-img {
+.event-img-profile {
   height: 50%;
   width: 50%;
 }
 
-/*.event-row {
-  text-align: center;
-  min-height: 400px;
-}*/
+.event-row {
+  min-height: 700px;
+}
 
 .event-cat-box {
   padding-top: 20px;
@@ -283,9 +305,11 @@ div.modal-footer {
 
 #overlay-text {
   font-family: 'Amatic SC';
-  font-size: 100px;
+  font-size: 150px;
   font-weight: 700;
   color: #fff;
+  text-shadow: 2px 3px 8px #000;
+  padding-bottom: 100px;
 }
 
 .overlay {
@@ -300,112 +324,105 @@ div.modal-footer {
 
 /* ------------ Nav Bar ------------ */
 
-/* this fixes the overflow problem, but blocks the drop down */
-  .navbar-collapse.collapse {
-    /*overflow: hidden !important;*/
-  }
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  border-bottom: 1px solid #a88f6a;
+}
 
-  .navbar {
-    border-radius: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 0;
-    border-bottom: 1px solid #a88f6a;
-  }
+.nav.navbar-nav {
+  float: left;
+  margin-bottom: 0px;
+  color: #000;
+}
 
-  .nav.navbar-nav {
-    float: left;
-    margin-bottom: 0px;
-    color: #000;
-  }
+.nav.navbar-nav {
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  text-align: center;
+}
 
-  .nav.navbar-nav {
-    clear: left;
-    float: left;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    left: 50%;
-    text-align: center;
-  }
+.nav.navbar-nav > li {
+  position: relative;
+  right: 50%;
+}
 
-  .nav.navbar-nav > li {
-    position: relative;
-    right: 50%;
-  }
+.nav.navbar-nav li {
+  text-align: left
+}
 
-  .nav.navbar-nav li {
-    text-align: left
-  }
+.nav.navbar-nav a {
+  height: 68px;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  letter-spacing: 1px;
+  background-color: #fbfbfb;
+}
 
-  .nav.navbar-nav a {
-    height: 68px;
-    font-family: 'Montserrat';
-    font-size: 15px;
-    letter-spacing: 1px;
-    background-color: #fbfbfb;
-  }
+.nav.navbar-nav li.nav-item {
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
 
-  .nav.navbar-nav li.nav-item {
-    padding-top: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
+li.nav.navbar-nav {
+  padding-right: 0px;
+}
 
-  li.nav.navbar-nav {
-    padding-right: 0px;
-  }
+/* -------- Logged-in User's Nav Bar -------- */
 
-  /* -------- Logged-in User's Nav Bar -------- */
+.custom-navbar a {
+  height: 30px;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #726659;
+  background-color: #fbfbfb;
+}
 
-    .custom-navbar a {
-      height: 30px;
-      font-family: 'Montserrat';
-      font-size: 15px;
-      letter-spacing: 1px;
-      color: #726659;
-      background-color: #fbfbfb;
-    }
+.nav-item {
+  padding-top: 20px;
+}
 
-    /* -- this is for the user name & drop-down menu in navbar -- */
+.nav-item-dropdown {
+  padding-top: 8px;
+  padding-left: 170px;
+}
 
-    .nav-item {
-      padding-top: 20px;
-    }
+.custom-navbar {
+  padding-top: 13px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #a88f6a;
+}
 
-    .nav-item-dropdown {
-      padding-top: 8px;
-      padding-left: 170px;
-    }
+.search-nav {
+  font-family: 'Montserrat';
+  font-size: 10px;
+  letter-spacing: 1px;
+}
 
-    .custom-navbar {
-      padding-top: 13px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #a88f6a;
-    }
+.nav-item-dropdown {
+/*   padding-left: 16px;*/
+}
 
-    .search-nav {
-      font-family: 'Montserrat';
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
+div.col-xs-2.col-s-2.col-md-2.nav-item {
+  text-align: left;
+}
 
-    .nav-item-dropdown {
-   /*   padding-left: 16px;*/
-    }
+.btn-nav:focus,.btn-nav:active {
+  outline: none !important;
+}
 
-    div.col-xs-2.col-s-2.col-md-2.nav-item {
-      text-align: left;
-    }
-
-    .btn-nav:focus,.btn-nav:active {
-      outline: none !important;
-    }
-
-    .dropdown {
-      border: none;
-      border-radius:0px;
-    }
+.dropdown {
+  border: none;
+  border-radius:0px;
+}
 
 
 /* ------------ Footer ------------ */
@@ -429,10 +446,11 @@ footer.container-fluid {
 
 footer > p {
   margin-top: 30px;
-  padding-left: 20px;
+  /*padding-left: 20px;*/
 }
 
 .fa {
+  color: #000;
   padding-right: 20px;
   padding-top: 20px;
 }
@@ -446,8 +464,8 @@ footer > p {
   color: #f3eadc;
 }
 
-.glyph a {
-  color: #000;
+footer > div > div.copyright.col-md-3.col-sm-3 > p {
+
 }
 
 .fa-github {
@@ -505,7 +523,7 @@ li.nav-logo a:hover {
 }
 
 .nav-logo a:hover {
-  background: none;
+  background: none !important;
 }
 
 /* --------- Links --------- */
@@ -547,6 +565,8 @@ a {
   /*margin: 5px;*/
   border-radius: 0;
   border: 5px double #a88f6a;
+  max-width: 310px;
+  min-height: 50px;
 }
 
 .btn-primary:hover,
@@ -603,4 +623,23 @@ fieldset[disabled] .btn-primary.active {
 .category-h3 h3 {
   display: inline-block;
   padding-right: 20px;
+}
+
+/* ------------------ media queries ------------ */
+
+@media (max-width: 900px) {
+
+  #overlay-text {
+    font-size: 50px;
+    font-weight: 500;
+  }
+
+  .btn-disappear,
+  .logo,
+  .user-info,
+  .categories-btn,
+  .copyright {
+    display: none;
+  }
+
 }

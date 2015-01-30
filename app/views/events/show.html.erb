@@ -15,35 +15,35 @@
       <%end%>
     </h1>
     <div class='row text-center'>
-    <% if @current_user %>
-          <% if @event.date < Date.today %>
-             <h3> This event has passed. <%=link_to "Discover", discover_path%> other exciting events in your area! </h3>
-            <% elsif @event.user_id == @current_user.id %>
-            <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
-            <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
-            <%= button_to "YOU ARE ATTENDING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary attnd-event" %>
-            <% elsif @event.capacity == @event.attending.count %>
-            <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
-            <% elsif @current_user.tickets.length < 1 %>
-            <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
-            <% else @event.attending.where(id:@current_user.id) == nil %>
-            <%= link_to 'ATTEND EVENT', event_attend_path(@event), :remote => true, :class => 'btn btn-primary ajax-button', :controller => :events, :action => :attend, :method => :post %>
-            <% end %>
-          <% else %>
+      <% if @current_user %>
+        <% if @event.date < Date.today %>
+          <h3> This event has passed. <%=link_to "Discover", discover_path%> other exciting events in your area! </h3>
+        <% elsif @event.user_id == @current_user.id %>
+          <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
+        <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
+          <%= link_to 'UN-ATTEND EVENT', event_un_attend_path(@event), :class => 'btn btn-primary ajax2-button', :controller => :events, :action => :un_attend, :method => :post %>
+        <% elsif @event.capacity == @event.attending.count %>
+          <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
+        <% elsif @current_user.tickets.length < 1 %>
+          <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
+        <% else @event.attending.where(id:@current_user.id) == nil %>
+          <%= link_to 'ATTEND EVENT', event_attend_path(@event), :remote => true, :class => 'btn btn-primary ajax-button', :controller => :events, :action => :attend, :method => :post %>
+          <% end %>
+        <% else %>
           <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
-          <% end %>
-          <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
-          <% this_user = @event.user %>
-          <% this_user.tickets << Ticket.create() %>
-          <% end %>
+      <% end %>
+      <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
+        <% this_user = @event.user %>
+        <% this_user.tickets << Ticket.create([{:user_id => @user.id}, {:user_id => @user.id}, {:user_id => @user.id}]) %>
+      <% end %>
       </div>
   </div>
   <div class='row'>
     <div class='col-xs-5 col-md-5 col-md-offset-1'>
       <% if @event_pic != nil %>
-      <img class="event-pic" src="<%= @event_pic %>">
+        <img class="event-img" src="<%= @event_pic %>">
       <% else%>
-      <img src="">
+        <img src="">
       <% end %>
       <h4>Donate to <%= @event.user.name %> for this event</h4>
         <%= bootstrap_form_for :payment, url: send_payment_path, html: { value: "edit_post",  :class => "payment" } do |f| %>
