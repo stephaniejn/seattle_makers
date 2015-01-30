@@ -29,9 +29,11 @@ class PaymentsController < ApplicationController
 				else
 					flash[:error] = "Couldnt find the user... Token probably expired."
 				end
+				redirect_to event_path(state[2])
 			else
 					flash[:error] = "Invalid state data."
+					redirect_to root_path
 			end
-			redirect_to event_path(state[2])
+
 	end
 end
