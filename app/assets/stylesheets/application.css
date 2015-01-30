@@ -288,6 +288,8 @@ div.modal-footer {
 
 .event-div-title {
   padding-bottom: 20;
+  font-family: 'Montserrat';
+  font-size: 15px;
 }
 
 
@@ -497,11 +499,11 @@ li.nav-item a:visited {
 li.nav-item a:hover {
   color: #a88f6a;
   text-decoration: underline;
-  background-color: #fbfbfb;
+  background-color: #fff;
 }
 
 li.nav-logo a:hover {
-  background-color: #fbfbfb;
+  background-color: #fff;
 }
 
 .custom-navbar a:link {
