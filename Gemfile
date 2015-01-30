@@ -36,8 +36,6 @@ gem 'omniauth-facebook'
 
 gem 'date_validator', '~> 0.7.1'
 
-gem 'dotenv-rails'
-
 #Venmo Payment Option
 gem 'venmo-api', '~> 0.0.3'
 
