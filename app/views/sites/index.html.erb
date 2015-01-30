@@ -62,33 +62,19 @@
 <!-- Events -->
 <div class='container main-container'>
   <h1>Trending</h1>
-    <div class='event-row text-center'>
-      <div class='event-div'>
-        <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
-        <h3>Create a Cocktail from Scratch</h3>
-      </div>
-      <div class='event-div'>
-        <%= image_tag "wood_working.gif", :class =>'event-img' %>
-        <h3>Make a Coffee Table</h3>
-      </div>
-      <div class='event-div'>
-        <%= image_tag "plant_making.gif", :class =>'event-img' %>
-        <h3>Succulent Planting & Care</h3>
-      </div>
+  <div class='event-row text-center'>
+   <div class='event-row text-center'>
+    <% @trending_arr[1,6].each do |event_id, trending |%>
+     <% if @event.find_by_id(event_id).date >= Date.today && trending != 1 %>
+    <div class='event-div'>
+      <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
+      <h3><%= link_to @event.find_by_id(event_id).title, event_path(@event.find_by_id(event_id).id) %></h3>
     </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-    <div class='event-row text-center'>
-      <div class='event-div'>
-        <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
-        <h3>Create a Cocktail from Scratch</h3>
-      </div>
-      <div class='event-div'>
-        <%= image_tag "wood_working.gif", :class =>'event-img' %>
-        <h3>Make a Coffee Table</h3>
-      </div>
-      <div class='event-div'>
-        <%= image_tag "plant_making.gif", :class =>'event-img' %>
-        <h3>Succulent Planting & Care</h3>
       </div>
     </div>
   </div>

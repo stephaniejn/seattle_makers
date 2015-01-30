@@ -19,33 +19,53 @@ $(document).ready(function() {
 
   $('#discover-btn').on('click', function(event){
     $(this)
-      .addClass('animated zoomIn')
-      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'})
-      .window(location.href='discover');
+    .addClass('animated zoomIn')
+    .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'})
+    .window(location.href='discover');
   });
 
   $('#start-btn').on('click', function(event){
+    $(this)
+    .addClass('animated zoomIn')
+    .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
+  });
+
+  $('.ajax-button').on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var link = $(this)
+    var url = link.attr('href');
+    $.post(url, {}, function(ticket){
+      console.log(ticket)
+      $(".credits").html("(" + ticket + ")")
+      $(link).html('YOU ARE ATTENDING THIS EVENT').attr("disabled", true);
+    },'json');
+  });
+
+  $('.ajax2-button').on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var link = $(this)
+    var url = link.attr('href');
+    $.post(url, {}, function(ticket){
+      console.log(ticket)
+      $(".credits").html("(" + ticket + ")")
+      $(link).html('YOU ARE NO LONGER ATTENDING THIS EVENT').attr("disabled", true);
+    },'json');
+  });
+
+   $('.ajax-button').on('click', function(event){
     $(this)
       .addClass('animated zoomIn')
       .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
   });
 
-  $('.ajax-button').on('click', function(event) {
-    console.log("clicking!")
-    event.preventDefault();
-    event.stopPropagation();
-    // alert($(ticket))
-      var link = $(this);
-      var url = link.attr('href');
-
-      $.post(url, {}, function(ticket){
-        console.log(ticket)
-        // $(".credits").html(response)
-        $(".credits").html("(" + ticket + ")")
-        $(link).html('YOU ARE ATTENDING THIS EVENT').attr("disabled", true);
-
-    },'json');
+    $('.ajax2-button').on('click', function(event){
+    $(this)
+      .addClass('animated zoomIn')
+      .css({'color':'#fff', 'background-color':'#a88f6a', 'border-color':'#a88f6a'});
   });
+
 });
 
 

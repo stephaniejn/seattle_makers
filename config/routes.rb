@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :events, except: [:index]
   post 'events/:id/attend' => 'events#attend', as: :event_attend
+  post 'events/:id/un_attend' => 'events#un_attend', as: :event_un_attend
 
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
