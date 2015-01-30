@@ -1,45 +1,22 @@
-<!-- Modal -->
-<div class="modal fade" id="makerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><h1>Sign Up Form</h1></h4>
-      </div>
-      <div class="modal-body">
-        <h3>Sign Up</h3>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/modal' %>
 <!-- Carousel-->
 <div class="col-md-12 col-sm-12">
   <div class="overlay text-center"><h1 id='overlay-text'>SEATTLE TRADING POST</h1><br />
     <button type="button" class="btn btn-primary btn-disappear" id="discover-btn">DISCOVER</button>
-    <button type="button" class="btn btn-primary btn-disappear" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
+    <% if @current_user %>
+    <% else %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
+    <% end %>
   </div>
   <div id="header-carousel" class='carousel slide' data-ride='carousel' data-interval='false'>
-  <div class="row">
-    <!-- <div class="col-md-12"> -->
-      <%= image_tag "bg2.gif", style: "width: 100%;" %>
-    <!-- </div> -->
-  </div>
+    <div class="row">
+        <%= image_tag "bg2.gif", style: "width: 100%;" %>
+    </div>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner text-center">
       <div class="item active">
-        <%#= image_tag "bg2.gif" %>
       </div>
-      <!-- <div class="item">
-        <img src="http://i.imgur.com/TQMnivK.gif">
-      </div>
-      <div class="item">
-        <img src="http://i.imgur.com/VFQ9jXY.gif">
-      </div> -->
     </div>
   </div>
 </div>
@@ -47,38 +24,25 @@
   <div id="index-desc" class='row our-story'>
     <div class='col-md-10 col-sm-10 col-xs-offset-2 col-md-offset-2 row our-story'>
       <div class='col-xs-5 col-md-5 p1'><p>Craft. Trade. Skill. These are traits that, historically, have been passed down from one generation to the next. A father teaching his son woodworking, a grandfather teaching his granddaugter how to fashion a leather belt. Today, with family spread across the far corners of the world, it's ever more important to have someone you can pass your skill on to. Seattle Makers exists to connect today's makers and craftsmen, giving you the oportunity to both teach and learn from another maker like yourself. Upon signup, you will recieve two credits. Each maker's event uses one credit to attend, so pick a couple events that look interesting to you and start learning. After that, it's your turn to teach.</p></div>
-      <div class='col-xs-5 col-md-5 p2'><p>Create a new event. If your event has alot of supplies that cost money, you can choose a suggested donation to help offset those costs. Once the event has been held, and your attendance was at least half of your capacity, you will recieve 3 more credits. We think this is a good balance of learning and teaching. Take a look around on the Discover page. Here, you can narrow your search via categories to help you find exactly what you would like to learn. From Libations, to Textiles, to Metallurgy, you are sure to find a new skill to pick up, and one you can share with others.</p></div>
+      <div class='col-xs-5 col-md-5 p2'><p>Create a new event. If your event has a lot of supplies that cost money, you can choose a suggested donation to help offset those costs. Once the event has been held, and your attendance was at least half of your capacity, you will recieve 3 more credits. We think this is a good balance of learning and teaching. Take a look around on the Discover page. Here, you can narrow your search via categories to help you find exactly what you would like to learn. From Libations, to Textiles, to Metallurgy, you are sure to find a new skill to pick up, and one you can share with others.</p></div>
     </div>
   </div>
 </div>
-
-  <!-- Controls -->
-  <!-- <a class="left carousel-control" href="#header-carousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-  </a>
-  <a class="right carousel-control" href="#header-carousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-  </a>
-</div> -->
 <!-- End Carusel -->
 
 <!-- Events -->
 <div class='container main-container'>
   <h1>Trending</h1>
   <div class='event-row text-center'>
-   <div class='event-row text-center'>
-    <% @trending_arr[1,6].each do |event_id, trending |%>
-     <% if @event.find_by_id(event_id).date >= Date.today && trending != 1 %>
-    <div class='event-div'>
-      <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
-      <h3><%= link_to @event.find_by_id(event_id).title, event_path(@event.find_by_id(event_id).id) %></h3>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-
+     <div class='event-row text-center'>
+      <% @trending_arr[1,6].each do |event_id, trending |%>
+       <% if @event.find_by_id(event_id).date >= Date.today && trending != 1 %>
+      <div class='event-div'>
+        <%= image_tag @event.find_by_id(event_id).image_id, :class =>'event-img' %>
+        <h2><%= link_to @event.find_by_id(event_id).title, event_path(@event.find_by_id(event_id).id) %></h2>
       </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>

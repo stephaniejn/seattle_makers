@@ -1,82 +1,114 @@
+
 <div class='col-md-6 col-md-offset-3'>
   <div class='error-msg text-center'>
     <%= render "shared/flash" %>
   </div>
 </div>
 <br>
-<div class='container main-container'>
-
-  <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
-
-  <br />
-  <br />
-  <div class='row'>
-    <div class='col-xs-offset-4 col-md-offset-1'>
-      <div class='col-xs-5 col-md-4 col-md-offset-1 text-left'>
-        <% if @event_pic != nil %>
-        <img class="event-pic" src="<%= @event_pic %>">
-        <% else%>
-        <img src="">
-        <% end %>
-
-        <h4>Donate to <%= @event.user.name %> for this event</h4>
-          <%= bootstrap_form_for :payment, url: send_payment_path, html: { value: "edit_post",  :class => "payment" } do |f| %>
-            <%= f.select :amount, { "Donate $5.00" => "5.00", "Donate $10.00" => "10.00", "Donate $15.00" => "15.00" } %>
-            <%= f.hidden_field :user, value: @event.user.id %>
-            <%= f.hidden_field :event, value: @event.id %>
-            <%= f.submit "Send Payment" %>
-          <% end %>
-      </div>
-      <div style="text-align:justified" class='col-xs-5 col-md-5 text-left'>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Event Description:</strong></h4><%= @event.desc%>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Host:</strong></h4><%= @event.user.name %>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Category:</strong></h4><%= @event.category.name%>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Capacity:</strong></h4><%= @event.attending.count %> out of <%= @event.capacity%> are attending
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Donation Suggested:</strong></h4><% if @event.donation == true%><%="Yes"%><%else%><%="No"%><%end%>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Date:</strong></h4><%= @event.date.strftime("%B %e, %Y")%>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong>Time:</strong></h4><%= @event.time.strftime("%l:%M %P")%>
-        </p>
-        <p class = "paragraph">
-          <h4 class = "event_header"><strong> Address: </strong> </h4><%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state, :target => "_blank" %> </p>
-        <br>
-        <% if @current_user %>
-          <% if @event.date < Date.today %>
-           <h3> This event has passed. <%=link_to "Discover", discover_path%> other exciting events in your area! </h3>
-          <% elsif @event.user_id == @current_user.id %>
+<!-- Event Container -->
+<div class='col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10 event-content-div'>
+  <div class='event-header'>
+    <h1 style="text-align:center">
+      <%= @event.title%>
+      <%if @current_user == @event.user%>
+        <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %>
+      <%end%>
+    </h1>
+    <div class='row text-center'>
+      <% if @current_user %>
+        <% if @event.date < Date.today %>
+          <h3> This event has passed. <%=link_to "Discover", discover_path%> other exciting events in your area! </h3>
+        <% elsif @event.user_id == @current_user.id %>
           <%= button_to "YOU ARE HOSTING THIS EVENT", {}, :disabled => true, :class => "btn btn-primary" %>
-          <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
+        <% elsif @event.attending.where(id:@current_user.id).any? && @event.user_id != @current_user.id %>
           <%= link_to 'UN-ATTEND EVENT', event_un_attend_path(@event), :class => 'btn btn-primary ajax2-button', :controller => :events, :action => :un_attend, :method => :post %>
-          <% elsif @event.capacity == @event.attending.count %>
+        <% elsif @event.capacity == @event.attending.count %>
           <%= button_to "CAPACITY HAS BEEN REACHED", {}, :disabled => true, :class => "btn btn-primary" %>
-          <% elsif @current_user.tickets.length < 1 %>
+        <% elsif @current_user.tickets.length < 1 %>
           <%= button_to "YOU'RE OUT OF TICKETS", {}, :disabled => true, :class => "btn btn-primary" %>
-          <% else @event.attending.where(id:@current_user.id) == nil %>
+        <% else @event.attending.where(id:@current_user.id) == nil %>
           <%= link_to 'ATTEND EVENT', event_attend_path(@event), :remote => true, :class => 'btn btn-primary ajax-button', :controller => :events, :action => :attend, :method => :post %>
           <% end %>
-          <% else %>
+        <% else %>
           <%= link_to 'SIGN UP TO ATTEND', signup_path, :class => 'btn btn-primary' %>
-        <% end %>
-        <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
+      <% end %>
+      <% if @event.date == Date.today && @event.attending.count >= (@event.capacity / 2) %>
         <% this_user = @event.user %>
         <% this_user.tickets << Ticket.create([{:user_id => @user.id}, {:user_id => @user.id}, {:user_id => @user.id}]) %>
+      <% end %>
+      </div>
+  </div>
+  <div class='row'>
+    <div class='col-xs-5 col-md-5 col-md-offset-1'>
+      <% if @event_pic != nil %>
+        <img class="event-img" src="<%= @event_pic %>">
+      <% else%>
+        <img src="">
+      <% end %>
+      <h4>Donate to <%= @event.user.name %> for this event</h4>
+        <%= bootstrap_form_for :payment, url: send_payment_path, html: { value: "edit_post",  :class => "payment" } do |f| %>
+          <%= f.select :amount, { "Donate $5.00" => "5.00", "Donate $10.00" => "10.00", "Donate $15.00" => "15.00" } %>
+          <%= f.hidden_field :user, value: @event.user.id %>
+          <%= f.hidden_field :event, value: @event.id %>
+          <%= f.submit "Send Payment", :class => 'btn btn-primary' %>
         <% end %>
-        <br><br>
-        <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
+      <br>
+       <%= link_to 'See other events by ' + @event.user.name, profile_path(@event.user.id) %>
+    </div>
+    <div style="text-align:justified" class='col-xs-5 col-md-5'>
+      <div class='row'>
+        <div class='col-xs-6 col-md-6 text-center'>
+          <h2>ATTENDING</h2>
+          <div class='row'>
+            <div class='col-xs-1 col-md-1 event-attend'>
+              <h2><%= @event.attending.count %></h2>
+            </div>
+          </div>
+        </div>
+        <div class='col-xs-6 col-md-6 text-center'>
+          <h2>CAPACITY</h2>
+          <div class='row'>
+            <div class='col-xs-1 col-md-1 event-cap'>
+              <h2><%= @event.capacity%></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='event-details'>
+        <div class='row event-header-row'>
+          <h2><strong>Event Description:</strong></h2>
+          <%= @event.desc%>
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Host:</strong></h2><%= @event.user.name %>
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Date:</strong></h2>
+          <%= @event.date.strftime("%B %e, %Y")%>
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Category:</strong></h2>
+          <%= @event.category.name%>
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Capacity:</strong></h2>
+          <%= @event.attending.count %> out of <%= @event.capacity%> are attending
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Donation Suggested:</strong></h2>
+          <% if @event.donation == true%><%="Yes"%><%else%><%="No"%><%end%>
+        </div>
+        <div class='row event-header-row'>
+          <h2><strong>Time:</strong></h2>
+          <%= @event.time.strftime("%l:%M %P")%>
+        </div>
+        <div class='row'>
+          <h2 class = "event-header-row"><strong> Address: </strong> </h2><%= link_to @event.address + ', ' + @event.city + ', ' + @event.state, 'http://maps.google.com/?q=' + @event.address + ', ' + @event.city + ', ' + @event.state, :target => "_blank" %> </p>
+        </div>
+      </div>
       </div>
     </div>
   </div>
 </div>
+<!-- End Event Container -->
 

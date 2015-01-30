@@ -8,8 +8,8 @@
   <link href='//fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=IM+Fell+Double+Pica' rel='stylesheet' type='text/css'>
   <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -101,8 +101,8 @@
                 <li class='nav-item'><%= link_to 'ABOUT', about_path %></li>
                 <li class='nav-item'><%= link_to 'DISCOVER', discover_path %></a></li>
                 <li class='nav-logo'><%= link_to image_tag("header_logo_lightbrown.gif"),  root_path  %></li>
-                <li class='nav-item'><%= link_to 'LOGIN', login_path %></a></li></li>
-                <li class='nav-item'><%= link_to 'SIGNUP', signup_path %></a></li></li>
+                <li class='nav-item'><%= link_to 'LOGIN', "" , "data-toggle" => "modal", "data-target" => "#signupModal"%></a></li></li>
+                <li class='nav-item'><%= link_to 'SIGNUP', "", "data-toggle" => "modal", "data-target" => "#makerModal" %></a></li></li>
               </ul>
             </div>
           </nav>
@@ -111,6 +111,7 @@
         <!-- Page Content -->
         <%= yield %>
         <!-- End Page Content -->
+
         <footer class='container-fluid'>
           <div class="col-md-12 col-sm-12">
             <div class="copyright col-md-3 col-sm-3">

@@ -68,16 +68,19 @@ class EventsController < ApplicationController
   def discover
     @event = Event.all
     @category = Category.all
+    @user = current_user
+    @user = User.new
+
     @trending = @event.map do |e|
      e.attending.count.to_f / e.capacity
     end
+
     @counts = @event.map do |e|
       e.id
     end
 
     @trending_arr = Hash[@counts.zip(@trending)].sort_by{ |counts, trending| trending }.reverse
-    # #  - e.attending.count
-    # render json: @trending_arr
+
   end
 
   def category

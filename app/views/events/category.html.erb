@@ -4,8 +4,8 @@
 <div class='event-row text-center'>
   <% @event.each do |e| %>
   <div class='event-div'>
-    <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
-    <h3><%= link_to e.title, event_path(e.id) %></h3>
+    <%= image_tag e.image_id, :class =>'event-img' %>
+    <h2><%= link_to e.title, event_path(e.id) %></h2>
   </div>
   <% end %>
 </div>

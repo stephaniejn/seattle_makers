@@ -1,3 +1,5 @@
+<%= render 'shared/modal' %>
+
 <div class='container main-container'>
   <div class="category-h3">
     <% @category.each do |c| %>
@@ -10,8 +12,8 @@
     <% @trending_arr[1,20].each do |event_id, trending |%>
     <% if @event.find_by_id(event_id).date >= Date.today && trending != 1 %>
     <div class='event-div'>
-      <%= image_tag "cocktail_crafting.gif", :class =>'event-img' %>
-      <h3><%= link_to @event.find_by_id(event_id).title, event_path(@event.find_by_id(event_id).id) %></h3>
+      <%= image_tag @event.find_by_id(event_id).image_id, :class =>'event-img' %>
+      <h2><%= link_to @event.find_by_id(event_id).title, event_path(@event.find_by_id(event_id).id) %></h2>
     </div>
     <% end %>
     <% end %>

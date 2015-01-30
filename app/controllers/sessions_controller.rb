@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def new
+    @user = current_user
   end
 
   def create
     @user = User.authenticate(params[:user][:email], params[:user][:password])
-    # render json: @user
 
     if @user
       session[:user_id] = @user.id
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:success] = "User logged out"
-    redirect_to login_path
+    redirect_to root_path
   end
 
 end
