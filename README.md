@@ -18,7 +18,7 @@
 ##### Logging in with new credentials #####
 ![Login With New User](https://farm8.staticflickr.com/7289/16216797628_6767d8f771_s.jpg)
 
-#### Home page after login ####s
+#### Home page after login ####
 ![Home Page After Login](https://farm9.staticflickr.com/8662/16402684311_4e0d8e87ae_s.jpg)
 
 
