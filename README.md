@@ -1,25 +1,44 @@
-# Seattle Trading Post #
------------
-####Seattle Trading Post connects the community of makers to allow people in the DIY community to learn from each other.####
-*Developed for General Assembly's Web Development Immersive by Luna Alison Alvarez, Nick Lathe, Claire Lyles, and Stephanie Nilles.
+# Seattle Trading Post
+
+-
+
+#### Seattle Trading Post connects the community of makers to allow people in the DIY community to learn from each other, and contribute their own skills.
+**Developed for General Assembly's Web Development Immersive by Luna Alison Alvarez, Nick Lathe, Claire Lyles, and Stephanie Nilles.**
+### Using the app is simple.
+* Sign-up or login
+* Each user is given two tickets upon signing up. These tickets grant you access to events hosted by other users.
+* Recieve more tickets by hosting an event which recieves at least 1/2 capacity attendance.
+* Donations encouraged (honesty policy). Donate page located on the event's page.
 
 
-[Visit Seattle Trading Post!](www.seattletradingpost.herokuapp.com)
+[Visit Seattle Trading Post!](seattletradingpost.herokuapp.com)
 
 
-### Using the website ###
+## Walkthrough
 
-##### Home Page #####
-![Home Page --- Before Login](https://farm9.staticflickr.com/8680/16218530597_0f571f3d5c_s.jpg)
+-
 
-##### Creating A New User #####
-![Create New User](https://farm8.staticflickr.com/7378/16402684361_ed53ddb5c7_s.jpg)
+### Landing Page---Welcome!
+![Home Page Before Login](http://oi60.tinypic.com/291hmci.jpg)
 
-##### Logging in with new credentials #####
-![Login With New User](https://farm8.staticflickr.com/7289/16216797628_6767d8f771_s.jpg)
+### Create a new user
+![Create New User](http://oi58.tinypic.com/2a4ycxx.jpg)
 
-#### Home page after login ####
-![Home Page After Login](https://farm9.staticflickr.com/8662/16402684311_4e0d8e87ae_s.jpg)
+### Login with your new credentials
+![Login With New User](http://oi62.tinypic.com/vyruqs.jpg)
+
+### You'll be redirected after login back to the landing page
+![Home Page After Login](http://i59.tinypic.com/1hs8zc.jpg)
+
+### Click "Discover" from your profile dropdown in the right-hand corner
+![Discover Page](http://i59.tinypic.com/14j2tg2.png)
+
+### View events by clicking their titles!
+![Event Show Page](http://i58.tinypic.com/2jfkg3n.png)
+
+### Attend an event---Lose a ticket. Gain more by hosting an event that has more than half capacity amount attending!
+![Attend the event](http://i61.tinypic.com/2q9ds9f.png)
+>>>>>>> bugfixin
 
 
 
