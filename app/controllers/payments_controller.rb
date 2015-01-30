@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
 
 	#Callback from venmo
 	def venmo_callback
+		puts "@"*99
 	  @venmo_user = Venmo.authenticate params[:code]
 
 	  state = params[:state].split("_")

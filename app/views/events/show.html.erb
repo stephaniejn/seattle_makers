@@ -26,7 +26,7 @@
             <%= f.hidden_field :event, value: @event.id %>
             <%= f.submit "Send Payment" %>
           <% end %>
-          <%#= @current_user.inspect %>
+          <%= @current_user.id.inspect %>
       </div>
       <div style="text-align:justified" class='col-xs-5 col-md-5'>
         <p class = "paragraph">
