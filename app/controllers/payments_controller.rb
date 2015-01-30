@@ -15,8 +15,8 @@ class PaymentsController < ApplicationController
 
 	  if(@venmo_user)
 		  to_user = User.find_by_id(state[0])
-		  to_email = "venmo@venmo.com" #to_user.email
-		  payment = @venmo_user.make_payment ({:email=>to_email, :note => 'A message to accompany the payment.', :amount => state[1]})
+		  to_email = to_user.email
+		  payment = @venmo_user.make_payment ({:email=>to_email, :note => 'Donation for your event on Seattle Trading Post!', :amount => state[1]})
 
 		  # puts payment.inspect
 		  # render json: {venmo_user:@venmo_user, params:params, payment: payment, payment_data: payment.data, payment_status: payment.data[:payment][:status]}
