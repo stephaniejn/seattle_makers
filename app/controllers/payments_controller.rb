@@ -17,11 +17,6 @@ class PaymentsController < ApplicationController
 			  to_user = User.find_by_id(state[0])
 			  to_email = to_user.email
 			  payment = @venmo_user.make_payment ({:email=>to_email, :note => 'Donation for your event on Seattle Trading Post!', :amount => state[1]})
-			  # binding.pry
-			  puts "@"*99
-			  puts payment.inspect
-			  puts "@"*99
-			  # render json: {venmo_user:@venmo_user, params:params, payment: payment, a}
 
 			  if payment.data && payment.data[:payment] && payment.data[:payment][:status] == "settled"
 			  	flash[:success] = "Your payment has been sent."
