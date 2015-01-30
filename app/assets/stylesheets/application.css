@@ -26,7 +26,7 @@ div {
 }
 
 .wrapper {
-  min-height: 950px;
+  min-height: 1300px;
   position: relative;
 }
 
@@ -132,11 +132,18 @@ div.modal-footer {
 
 /* ------------ Event Page ------------ */
 
-.event-header > h1 {
+.event-header {
   padding-top: 40px;
-  padding-bottom: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+}
 
+.event-header > h1 {
+  padding-bottom: 20px;
+}
+
+.event-header-row {
+  /*padding-top: 10px;*/
+  padding-bottom: 10px;
 }
 
 .event-content-div {
@@ -146,6 +153,39 @@ div.modal-footer {
   border-left: 5px double #726659;;*/
   margin-bottom: 80px;
   background-color: #f3eadc;
+}
+
+.event-cap {
+  text-align:center;
+  background-color: #726659;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  margin-left: 80px;
+}
+
+.event-attend {
+  text-align:center;
+  background-color: #726659;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  margin-left: 80px;
+}
+
+.event-attend > h2 {
+  color: #fff;
+}
+
+.event-cap > h2 {
+  color: #fff;
+}
+
+.event-details {
+  margin-top: 20px;
 }
 
 
@@ -191,8 +231,22 @@ div.modal-footer {
   padding-bottom: 30px;
 }
 
+.profile-content-div {
+  padding-bottom: 60px;
+  border: 5px double #726659;
+/*  border-bottom: 5px double #726659;
+  border-left: 5px double #726659;;*/
+  margin-bottom: 80px;
+  background-color: #f3eadc;
+}
+
 .pie-chart {
-  margin-top: 60px;
+  margin-top: 40px;
+}
+
+.piechart-img {
+  /*border: 5px double #726659;*/
+  border-radius: 30px;
 }
 
 .event-img {
@@ -389,7 +443,7 @@ footer > p {
 
 .copyright {
   padding-top: 25px;
-  color: #fff;
+  color: #f3eadc;
 }
 
 .glyph a {
@@ -397,15 +451,15 @@ footer > p {
 }
 
 .fa-github {
-  color: #fff;
+  color: #f3eadc;
 }
 
 .fa-facebook-square {
-  color: #fff;
+  color: #f3eadc;
 }
 
 .fa-instagram {
-  color: #fff;
+  color: #f3eadc;
 }
 
 /* ------------ Nav Links ------------ */

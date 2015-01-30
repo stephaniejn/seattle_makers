@@ -6,8 +6,8 @@
 </div>
 
 <!-- Profile Header -->
-<div class='main-container'>
-  <div class='col-xs-12 col-md-12 profile-header text-center'>
+<div class='main-container col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1 profile-content-div'>
+  <div class='row profile-header text-center'>
     <h1><%= @user.name %>'s Profile</h1>
   </div>
 
@@ -40,7 +40,7 @@
         </div>
       <!-- Pie Chart -->
       <div class='col-xs-6 col-md-6 text-center pie-chart'>
-        <img src="<%= @piechart %>">
+        <img src="<%= @piechart %>" class='piechart-img'>
       </div>
     </div>
 

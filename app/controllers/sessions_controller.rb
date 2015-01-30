@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+    @user = current_user
   end
 
   def create
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = nil
     flash[:success] = "User logged out"
-    redirect_to login_path
+    redirect_to root_path
 
   end
 

@@ -58,6 +58,8 @@ class EventsController < ApplicationController
   def discover
     @event = Event.all
     @category = Category.all
+    @user = current_user
+    @user = User.new
   end
 
   def category

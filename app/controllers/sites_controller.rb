@@ -8,10 +8,12 @@ class SitesController < ApplicationController
 
 
   def about
-
+    @user = current_user
+    @user = User.new
   end
 
 private
+
   def user_params
     params.require(:user).permit(:email, :name, :password)
   end

@@ -50,8 +50,6 @@ class UsersController < ApplicationController
           counts[cat] += 1
         end
 
-        redner
-
         # divides event category frequency by total number of attended events
         @frequency_arr = counts.map do |cat, freq|
          freq.fdiv(@attend_count)
