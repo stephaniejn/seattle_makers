@@ -13,8 +13,11 @@ class User < ActiveRecord::Base
     uniqueness: {case_sensitive: false},
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
+  validates :password,
+    length: {minimum: 6}
+
   validates_confirmation_of :password, on: :create
-  # validates_presence_of :password_confirmation
+  validates_presence_of :password_confirmation, on: :create
 
   validates :name,
     presence: true,

@@ -29,7 +29,7 @@ end
   end
 
   def capture_image new_photo_path
-    Cloudinary::Uploader.upload(new_photo_path)
+    Cloudinary::Uploader.upload(new_photo_path.path)['url'] if new_photo_path
   end
 
 
