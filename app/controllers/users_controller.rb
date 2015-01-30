@@ -29,6 +29,7 @@ class UsersController < ApplicationController
      if @current_user.id != @user.id
        redirect_to profile_path(@user)
       else
+
       # ---------- Start Google Chart Gem ---------- #
       pc = GoogleChart::PieChart.new('420x200', "Attended Categories", false) do |pc|
         # returns the total number of events this person is going to
@@ -78,7 +79,6 @@ class UsersController < ApplicationController
         end
       end
     end
-
     # ---------- End Google Chart Gem ---------- #
   end
 

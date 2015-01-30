@@ -113,12 +113,6 @@ body {
   max-height: 200px;
 }
 
-#index-desc {
-  margin-right: 50px;
-  padding-top: 100px;
-  border-right: 1px solid;
-  /*padding-bottom: 100px;*/
-}
 
 /* ------------ About Page ------------ */
 
@@ -154,6 +148,29 @@ body {
   width: 50%;
   height: 50%;
 }
+
+/* ------------ Profile Show Page ------------ */
+
+.pie-chart {
+  margin-top: 80px;
+}
+
+.event-img {
+  height: 50%;
+  width: 50%;
+}
+
+/*.event-row {
+  text-align: center;
+  min-height: 400px;
+}*/
+
+.event-cat-box {
+  padding-top: 20px;
+  margin: 20px;
+}
+
+
 
 /* ------------ Carousel ------------ */
 

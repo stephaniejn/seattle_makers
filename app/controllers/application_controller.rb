@@ -28,9 +28,9 @@ end
     @category_all = Category.all
   end
 
-  # def capture_image new_photo_path
-  #   Cloudinary::Uploader.upload(new_photo_path)
-  # end
+  def capture_image new_photo_path
+    Cloudinary::Uploader.upload(new_photo_path)
+  end
 
 
 end

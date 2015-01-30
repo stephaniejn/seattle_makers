@@ -1,103 +1,168 @@
+<!-- Flash Messages -->
 <div class='col-md-6 col-md-offset-3'>
   <div class='error-msg text-center'>
     <%= render "shared/flash" %>
   </div>
 </div>
 
+<!-- Profile Header -->
+<div class='main-container'>
+  <div class='col-xs-12 col-md-12 profile-header text-center'>
+    <h1>My Profile</h1>
+  </div>
 
-<div class='container main-container'>
-  <h1 style="text-align:center">My Profile</h1>
-  <br>
-  <br>
-  <div style='text-align:center'class='row'>
-      <div class='col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1'>
-        <div class='col-xs-6 col-md-6'>
-        <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
-        <br>
-        <% if @user.uid.blank?%>
-          <img id ="placeholder" src = "<%=asset_path "person-placeholder.png"%>">
-          <p> <a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
-        <% else %>
-        <img style="width:180px" src = "http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
-        <% end %>
-        <br />
-        <br />
-        <br />
-        <p> <strong>Name:</strong>
-          <%= @user.name %>
-        </p>
-        <p> <strong>Email:</strong>
-          <%= @user.email %>
-        </p>
-        <p> <strong>Available Tickets:</strong>
-          <%= @user.tickets.count %>
-        </p>
-      </div>
-      <div class='col-xs-6 col-md-6'>
+  <!-- ##### Profile Picture, FB & Edit Button ##### -->
+    <div class='col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1'>
+        <div class='col-xs-6 col-md-6 text-center'>
+          <!-- Profile Image -->
+          <div class='row'>
+            <% if @user.uid.blank?%>
+              <img id ="placeholder" src="<%=asset_path "person-placeholder.png"%>">
+              <p><a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
+            <% else %>
+              <img style="width:180px" src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large">
+            <% end %>
+          </div>
+          <!-- Profile Image -->
+          <div class='row'>
+            <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
+          </div>
+          <!-- Profile Profile Info -->
+          <div class='row'>
+            <strong>Name:</strong><%= @user.name %>
+          </div>
+          <div class='row'>
+            <strong>Email:</strong><%= @user.email %>
+          </div>
+          <div class='row'>
+            <strong>Available Tickets:</strong><%= @user.tickets.count %>
+          </div>
+        </div>
+      <!-- Pie Chart -->
+      <div class='col-xs-6 col-md-6 text-center pie-chart'>
         <img src="<%= @piechart %>">
       </div>
     </div>
+
+  <div class='row text-center'>
+  <!-- ##### UPCOMMING Hosted & Attended ##### -->
+  <div class='col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1 text-center'>
+    <div class='col-xs-6 col-md-6 text-center'>
+    <!-- UPCOMMING Events Hosted -->
+      <div class='row event-cat-box'>
+      <h2><strong>Upcoming Events I'm Hosting</strong></h2>
+        <% @user.events.each do |event| %>
+          <% if event.date > Date.today%>
+            <div class='col-xs-3 col-md-3'>
+              <div class='row'>
+                <img src="<%=event.image_id%>" class='event-img'>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            </div>
+          <% elsif event.date == Date.today %>
+            <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
+              <div class='col-xs-3 col-md-3'>
+                <div class='row'>
+                  <img src="<%=event.image_id%>" class='event-img'>
+                </div>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <!-- UPCOMMING Events Attended -->
+    <div class='row event-cat-box'>
+    <h2><strong>Upcoming Events I'm Attending</strong></h2>
+        <% @user.attending.each  do |event| %>
+          <% if event.date > Date.today%>
+            <div class='col-xs-3 col-md-3'>
+              <div class='row'>
+                <img src="<%=event.image_id%>" class='event-img'>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            </div>
+          <% elsif event.date == Date.today %>
+            <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
+              <div class='col-xs-3 col-md-3'>
+                <div class='row'>
+                  <img src="<%=event.image_id%>" class='event-img'>
+                </div>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- ##### PAST Hosted & Attended Events ##### -->
+    <div class='col-xs-6 col-md-6 text-center'>
+      <!-- PAST Events Hosted -->
+      <div class='row event-cat-box'>
+      <h2><strong>Past Events I've Hosted</strong></h2>
+        <% @user.events.each do |event| %>
+          <% if event.date < Date.today%>
+            <div class='col-xs-3 col-md-3'>
+              <div class='row'>
+                <img src="<%=event.image_id%>" class='event-img'>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            </div>
+          <% elsif event.date == Date.today %>
+          <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
+            <div class='col-xs-3 col-md-3'>
+              <div class='row'>
+                <img src="<%=event.image_id%>" class='event-img'>
+              </div>
+            </div>
+            <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <!-- PAST Events Attended -->
+      <div class='row event-cat-box'>
+      <h2><strong>Past Events I've Attended</strong></h2>
+        <% @user.attending.each do |event| %>
+          <% if event.date < Date.today%>
+            <div class='col-xs-3 col-md-3'>
+              <div class='row'>
+                <img src="<%=event.image_id%>" class='event-img'>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            </div>
+          <% elsif event.date == Date.today %>
+            <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
+              <div class='col-xs-3 col-md-3'>
+                <div class='row'>
+                  <img src="<%=event.image_id%>" class='event-img'>
+                </div>
+              </div>
+              <div class='row'>
+                <span><%= link_to event.title, event_path(event) %></span>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <br>
-  <br>
-
-      <h4 style="text-align:center"> <strong>Upcoming Events I'm Hosting</strong></h4>
-       <% @user.events.each do |event| %>
-        <% if event.date > Date.today%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-        <% elsif event.date == Date.today %>
-          <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-           <% end %>
-        <% end %>
-       <% end %>
-
-
-    <br> <br>
-
-    <h4 style="text-align:center"> <strong>Past Events I Hosted</strong></h4>
-      <% @user.events.each do |event| %>
-        <% if event.date < Date.today%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-        <% elsif event.date == Date.today %>
-          <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-          <% end %>
-        <% end %>
-      <% end %>
-
-    <br> <br>
-
-    <h4 style="text-align:center"> <strong>Upcoming Events I'm Attending</strong></h4>
-      <% @user.attending.each do |event| %>
-        <% if event.date > Date.today%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-        <% elsif event.date == Date.today %>
-          <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-          <% end %>
-        <% end %>
-      <% end %>
-
-    <br> <br>
-
-    <h4 style="text-align:center"> <strong>Past Events I Attended</strong></h4>
-      <% @user.attending.each do |event| %>
-        <% if event.date < Date.today%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-         <% elsif event.date == Date.today %>
-          <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
-          <img style="width:180px" src = "<%=event.image_id%>">
-          <span><%= link_to event.title, event_path(event) %></span>
-          <% end %>
-        <% end %>
-      <% end %>
 
 </div>
+</div>
+<!-- End of main-container -->

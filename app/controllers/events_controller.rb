@@ -39,16 +39,13 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    # result = capture_image params[:event][:photo].path
-
-    @event = @current_user.events.create(event_params)
-
-    # @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
-    #                       desc: params[:event][:desc], capacity: params[:event][:capacity],
-    #                       donation: params[:event][:donation], category_id: params[:event][:category_id],
-    #                       date: params[:event][:date], time: params[:event][:time],
-    #                       address: params[:event][:address], city: params[:event][:city],
-    #                       state: params[:event][:state]})
+    result = capture_image params[:event][:photo].path
+    @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
+                          desc: params[:event][:desc], capacity: params[:event][:capacity],
+                          donation: params[:event][:donation], category_id: params[:event][:category_id],
+                          date: params[:event][:date], time: params[:event][:time],
+                          address: params[:event][:address], city: params[:event][:city],
+                          state: params[:event][:state]})
     if @event.errors.any?
       flash[:danger] = "There was an error in your creation - please try again"
       render :edit
@@ -78,10 +75,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json {render json: ticket}
       format.html {redirect_to event_path(@event)}
-      end
+    end
   end
 
   private
+
   def event_params
     params.require(:event).permit(:title, :desc, :capacity, :donation, :category_id, :date, :time, :address, :city, :state)
   end
