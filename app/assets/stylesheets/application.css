@@ -26,7 +26,8 @@ div {
 }
 
 .wrapper {
-  min-height: 850px;
+  min-height: 650px;
+  /*height: 100%;*/
   position: relative;
 }
 
@@ -341,10 +342,11 @@ footer.container-fluid {
 
 footer > p {
   margin-top: 30px;
-  padding-left: 20px;
+  /*padding-left: 20px;*/
 }
 
 .fa {
+  color: #000;
   padding-right: 20px;
   padding-top: 20px;
 }
@@ -357,8 +359,8 @@ footer > p {
   padding-top: 25px;
 }
 
-.glyph a {
-  color: #000;
+footer > div > div.copyright.col-md-3.col-sm-3 > p {
+
 }
 
 /* ------------ Links ------------ */
@@ -477,12 +479,21 @@ fieldset[disabled] .btn-primary.active {
   padding-right: 20px;
 }
 
+/* ------------------ media queries ------------ */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 
   #overlay-text {
-  font-size: 50px;
-  font-weight: 500;
-}
+    font-size: 50px;
+    font-weight: 500;
+  }
+
+  .btn-disappear,
+  .logo,
+  .user-info,
+  .categories-btn,
+  .copyright {
+    display: none;
+  }
 
 }
