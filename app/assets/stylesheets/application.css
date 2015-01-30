@@ -26,7 +26,7 @@ div {
 }
 
 .wrapper {
-  min-height: 850px;
+  min-height: 950px;
   position: relative;
 }
 
@@ -62,7 +62,7 @@ h2 {
 body {
   font-family: 'IM Fell Double Pica';
   font-size: 15px;
-  background-color: #fbfbfb;
+  background-color: #fff;
 }
 
 
@@ -131,16 +131,21 @@ div.modal-footer {
 
 
 /* ------------ Event Page ------------ */
-.event-header {
-  background-color: #726659;
-/*  height: 120px;*/
-  color: #fff;
-}
 
 .event-header > h1 {
   padding-top: 40px;
   padding-bottom: 40px;
-  color: #fff;
+  margin-bottom: 60px;
+
+}
+
+.event-content-div {
+  padding-bottom: 60px;
+  border: 5px double #726659;
+/*  border-bottom: 5px double #726659;
+  border-left: 5px double #726659;;*/
+  margin-bottom: 80px;
+  background-color: #f3eadc;
 }
 
 
@@ -353,16 +358,19 @@ div.modal-footer {
 
 footer {
   /*position: absolute;*/
-  height: 90px;
+  height: 160px;
   width: 100%;
   /*border-top: 1px solid #a88f6a;*/
   bottom: 0;
+  background-color: #726659;
 }
 
 footer.container-fluid {
   padding-right: 0px;
   padding-left: 0px;
   border-top: 1px solid #a88f6a;
+  margin-top: 40px;
+  background-color: #726659;
 }
 
 footer > p {
@@ -381,10 +389,23 @@ footer > p {
 
 .copyright {
   padding-top: 25px;
+  color: #fff;
 }
 
 .glyph a {
   color: #000;
+}
+
+.fa-github {
+  color: #fff;
+}
+
+.fa-facebook-square {
+  color: #fff;
+}
+
+.fa-instagram {
+  color: #fff;
 }
 
 /* ------------ Nav Links ------------ */
