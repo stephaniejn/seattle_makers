@@ -37,7 +37,8 @@ gem 'omniauth-facebook'
 gem 'date_validator', '~> 0.7.1'
 
 #Venmo Payment Option
-gem 'venmo-api', '~> 0.0.3'
+#gem 'venmo-api', '~> 0.0.3'
+gem 'venmo-api', :git => 'https://github.com/CestLou/venmo-api.git'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
