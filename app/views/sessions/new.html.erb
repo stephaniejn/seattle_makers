@@ -1,6 +1,7 @@
 <div class='container main-container'>
   <div class="row">
-    <div class="col-md-4 col-sm-4 col-md-offset-4">
+    <div class="col-md-4 col-sm-4 col-md-offset-4 text-left">
+      <%= render 'shared/flash' %>
       <h1>User Login</h1>
       <%= bootstrap_form_for :user, :url => {:controller => "sessions", :action => "create"} do |f| %>
       <%= f.text_field :email, :placeholder => "Email", icon: "user" %>
