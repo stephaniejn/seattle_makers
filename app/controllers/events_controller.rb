@@ -48,8 +48,9 @@ class EventsController < ApplicationController
   def create
     is_authenticated?
     @categories = Category.all
-    result = capture_image params[:event][:photo].path
-    @event = @current_user.events.create({image_id: result['url'], title: params[:event][:title],
+    result = capture_image params[:event][:image_id]
+
+    @event = @current_user.events.create({image_id: result, title: params[:event][:title],
                           desc: params[:event][:desc], capacity: params[:event][:capacity],
                           donation: params[:event][:donation], category_id: params[:event][:category_id],
                           date: params[:event][:date], time: params[:event][:time],
@@ -67,6 +68,16 @@ class EventsController < ApplicationController
   def discover
     @event = Event.all
     @category = Category.all
+    @trending = @event.map do |e|
+     e.attending.count.to_f / e.capacity
+    end
+    @counts = @event.map do |e|
+      e.id
+    end
+
+    @trending_arr = Hash[@counts.zip(@trending)].sort_by{ |counts, trending| trending }.reverse
+    # #  - e.attending.count
+    # render json: @trending_arr
   end
 
   def category

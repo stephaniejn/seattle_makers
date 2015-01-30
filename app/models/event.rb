@@ -8,12 +8,12 @@ class Event < ActiveRecord::Base
 
   validates :title,
     presence: true,
-    uniqueness: {case_sensitive: false, message: '- Please be more specific' },
+    uniqueness: {case_sensitive: false, message: '- Please be more creative' },
     length: {maximum: 30}
 
   validates :desc,
     presence: true,
-    length: {maximum: 250}
+    length: {maximum: 350}
 
   validates :capacity,
     presence: true,
@@ -28,6 +28,7 @@ class Event < ActiveRecord::Base
     date: { before: Proc.new { Date.today + 1.year }, message: 'must be within the year' }
 
   validates_presence_of :category_id, :time, :address, :city, :state
+  validates_presence_of :image_id, :message => "please include an image"
 
   validates_presence_of :image_id, :message => "please include an image"
 

@@ -2,10 +2,10 @@
   <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class = "alert alert-danger"
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+    <h2><%= pluralize(@user.errors.full_messages.uniq.count, "error") %> prohibited this profile from being saved:</h2>
 
     <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.uniq.each do |msg| %>
       <li><%= msg %></li>
       <% end %>
     </ul>
@@ -19,6 +19,7 @@
   <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
   <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
   <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+  <%= f.password_field :password_confirmation, :placeholder => "Enter password confirmation", icon: "lock"  %>
   <%= f.submit :class=>'btn btn-primary'%>
   <% end %>
 </div>

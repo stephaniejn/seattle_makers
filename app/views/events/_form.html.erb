@@ -10,8 +10,8 @@
   </div>
 </div>
 
-<% end %>
 
+<% end %>
 <%= bootstrap_form_for @event do |f| %>
   <div class="form-group">
     <%= f.text_field :title, placeholder: 'Ex. Build a Chair' %>
@@ -45,7 +45,7 @@
       <%= f.select :state, us_states, :prompt => "Ex. Washington"%>
     </div>
     <div>
-      <%= f.file_field :photo %>
+      <%= f.file_field :image_id %>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <% end %>
