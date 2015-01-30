@@ -2,7 +2,6 @@
 class SitesController < ApplicationController
 
   def index
-    # @current_user
     @user = current_user
     @user = User.new
   end

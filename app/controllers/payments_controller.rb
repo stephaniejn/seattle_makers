@@ -8,27 +8,31 @@ class PaymentsController < ApplicationController
 
 	#Callback from venmo
 	def venmo_callback
+
 	  @venmo_user = Venmo.authenticate params[:code]
+	  if params[:state]
+		  state = params[:state].split("_")
+		  #state[0] = user id ...  state[1] = payment amount ... state[2] = event id
+		  if(@venmo_user)
+			  to_user = User.find_by_id(state[0])
+			  to_email = to_user.email
+			  payment = @venmo_user.make_payment ({:email=>to_email, :note => 'Donation for your event on Seattle Trading Post!', :amount => state[1]})
 
-	  state = params[:state].split("_")
-	  #state[0] = user id ...  state[1] = payment amount ... state[2] = event id
-
-	  if(@venmo_user)
-		  to_user = User.find_by_id(state[0])
-		  to_email = "venmo@venmo.com" #to_user.email
-		  payment = @venmo_user.make_payment ({:email=>to_email, :note => 'A message to accompany the payment.', :amount => state[1]})
-
-		  # puts payment.inspect
-		  # render json: {venmo_user:@venmo_user, params:params, payment: payment, payment_data: payment.data, payment_status: payment.data[:payment][:status]}
-
-		  if payment.data && payment.data[:payment] && payment.data[:payment][:status] == "settled"
-		  	flash[:success] = "Your payment has been sent."
-		  else
-		  	flash[:error] = "We were unable to process your payment."
-		  end
+			  if payment.data && payment.data[:payment] && payment.data[:payment][:status] == "settled"
+			  	flash[:success] = "Your payment has been sent."
+			  else
+			  	flash[:error] = "We were unable to process your payment."
+			  end
+			else
+				flash[:error] = "Couldnt find the user... Token probably expired."
+			end
+			redirect_to event_path(state[2])
 		else
-			flash[:error] = "Couldnt find the user... Token probably expired."
+				flash[:error] = "Invalid state data."
+				redirect_to root_path
 		end
-		redirect_to event_path(state[2])
 	end
+
+
+
 end
