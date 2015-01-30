@@ -49,6 +49,11 @@ body {
   font-family: 'IM Fell Double Pica';
   font-size: 15px;
   background-color: #fbfbfb;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 .main-container {
@@ -132,6 +137,7 @@ body {
 }
 
 
+
 /* ------------ About Page ------------ */
 
 .our-story {
@@ -204,9 +210,11 @@ body {
 
 #overlay-text {
   font-family: 'Amatic SC';
-  font-size: 100px;
+  font-size: 150px;
   font-weight: 700;
   color: #fff;
+  text-shadow: 2px 3px 8px #000;
+  padding-bottom: 100px;
 }
 
 .overlay {
@@ -421,6 +429,8 @@ li.nav-item a:hover {
   /*margin: 5px;*/
   border-radius: 0;
   border: 5px double #a88f6a;
+  max-width: 310px;
+  min-height: 50px;
 }
 
 .btn-primary:hover,

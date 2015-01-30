@@ -30,8 +30,6 @@ class Event < ActiveRecord::Base
   validates_presence_of :category_id, :time, :address, :city, :state
   validates_presence_of :image_id, :message => "please include an image"
 
-  validates_presence_of :image_id, :message => "please include an image"
-
   validates :donation, inclusion: [true, false]
 
 end

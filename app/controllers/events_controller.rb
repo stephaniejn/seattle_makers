@@ -27,8 +27,8 @@ class EventsController < ApplicationController
     @categories = Category.all
     @event = Event.find(params[:id])
     # @event.update(event_params)
-    result = capture_image params[:event][:photo].path
-    @event.update({image_id: result['url'], title: params[:event][:title],
+    result = capture_image params[:event][:image_id]
+    @event.update({image_id: result, title: params[:event][:title],
                           desc: params[:event][:desc], capacity: params[:event][:capacity],
                           donation: params[:event][:donation], category_id: params[:event][:category_id],
                           date: params[:event][:date], time: params[:event][:time],
