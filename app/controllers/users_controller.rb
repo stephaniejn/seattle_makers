@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   require 'rubygems'
-    require 'google_chart'
+  require 'google_chart'
 
   def new
     @user = User.new
@@ -102,7 +102,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :name, :password)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 
 end
