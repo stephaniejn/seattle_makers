@@ -26,7 +26,16 @@ class EventsController < ApplicationController
     is_authenticated?
     @categories = Category.all
     @event = Event.find(params[:id])
-    @event.update(event_params)
+    # @event.update(event_params)
+    result = capture_image params[:event][:image_id]
+    @event.update({image_id: result, title: params[:event][:title],
+                          desc: params[:event][:desc], capacity: params[:event][:capacity],
+                          donation: params[:event][:donation], category_id: params[:event][:category_id],
+                          date: params[:event][:date], time: params[:event][:time],
+                          address: params[:event][:address], city: params[:event][:city],
+                          state: params[:event][:state]})
+
+
     if @event.errors.any?
       flash[:danger] = "There was an error in your edit - please try again"
       render :edit

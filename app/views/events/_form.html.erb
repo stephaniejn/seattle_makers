@@ -45,7 +45,7 @@
       <%= f.select :state, us_states, :prompt => "Ex. Washington"%>
     </div>
     <div>
-      <%= f.file_field :image_id %>
+      <%= f.file_field :image_id, class: 'btn btn-primary'%>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <% end %>
