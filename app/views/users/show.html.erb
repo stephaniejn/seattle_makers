@@ -55,7 +55,7 @@
           <% if event.date > Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -65,7 +65,7 @@
             <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
               <div class='col-xs-3 col-md-3'>
                 <div class='row'>
-                  <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                  <img src="<%=event.image_id%>" class='event-img'>
                 </div>
               </div>
               <div class='row'>
@@ -82,7 +82,7 @@
           <% if event.date > Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -92,7 +92,7 @@
             <%if event.time.strftime("%l:%M %P") >= Time.now.strftime("%l:%M %P")%>
               <div class='col-xs-3 col-md-3'>
                 <div class='row'>
-                  <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                  <img src="<%=event.image_id%>" class='event-img'>
                 </div>
               </div>
               <div class='row'>
@@ -113,7 +113,7 @@
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -123,7 +123,7 @@
           <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img'>
               </div>
             </div>
             <div class='row'>
@@ -140,7 +140,7 @@
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -150,7 +150,7 @@
             <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
               <div class='col-xs-3 col-md-3'>
                 <div class='row'>
-                  <img src="<%=asset_path "placeholder.png"%>" class='event-img'>
+                  <img src="<%=event.image_id%>" class='event-img'>
                 </div>
               </div>
               <div class='row'>
