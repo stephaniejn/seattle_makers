@@ -15,6 +15,11 @@
  *= require rails_bootstrap_forms
  */
 
+/*Events Show Page*/
+.payment {
+  font-weight: bold;
+  width: 60%;
+}
 
 div {
   /*border: 1px solid #000;*/
@@ -117,6 +122,11 @@ body {
 .event-pic {
   max-width: 300px;
   max-height: 200px;
+}
+
+div.modal-footer {
+  border: 0px;
+  padding-bottom: 80px;
 }
 
 
@@ -337,7 +347,7 @@ body {
       border: none;
       border-radius:0px;
     }
-}
+
 
 /* ------------ Footer ------------ */
 

@@ -1,23 +1,73 @@
-<!-- Modal -->
+<!-- Sign-up Modal -->
 <div class="modal fade" id="makerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><h1>Sign Up Form</h1></h4>
+        <h4 class="modal-title" id="myModalLabel"><h1>SEATTLE TRADING POST</h1></h4>
       </div>
+      <!-- Sign-Up Modal Body -->
       <div class="modal-body">
-        <h3>Sign Up</h3>
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <div class = "alert alert-danger"
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          </div>
+        </div>
+        <% end %>
+        <!-- Sign-Up Modal Form -->
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal">
+          <h1> New User </h1>
+          <%= bootstrap_form_for @user, url: signup_path do |f| %>
+          <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
+          <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
+          <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+          <%= f.submit :class=>'btn btn-primary'%>   <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <% end %>
+        </div>
       </div>
+      <!-- Sign-Up End Modal Body -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><h1>SEATTLE TRADING POST</h1></h4>
+      </div>
+      <!-- Login Modal Body -->
+      <div class="modal-body">
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <div class = "alert alert-danger"
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          </div>
+        </div>
+        <% end %>
+        <!-- Login Modal Form -->
+        <div class="col-md-6 col-sm-6 col-md-offset-3 signup-modal">
+          <h1> Login </h1>
+          <%= bootstrap_form_for @user, url: login_path do |f| %>
+          <%= f.email_field :email, :placeholder => "Enter email", icon: "user" %>
+          <%= f.text_field :name, :placeholder => "Enter name", icon: "pencil" %>
+          <%= f.password_field :password, :placeholder => "Enter password", icon: "lock" %>
+          <%= f.submit :class=>'btn btn-primary'%>   <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <% end %>
+        </div>
+      </div>
+      <!-- Login End Modal Body -->
+      <div class="modal-footer">
       </div>
     </div>
   </div>
 </div>
 <!-- Carousel-->
-<div class="overlay text-center"><h1 id='overlay-text'>SEATTLE MAKERS: Getting <br/>Hands Dirty Since 2015.</h1><br />
+<div class="overlay text-center"><h1 id='overlay-text'>SEATTLE TRADING POST:<br/>Hands Dirty Since 2015.</h1><br />
   <button type="button" class="btn btn-primary" id="discover-btn">DISCOVER</button>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makerModal" id="start-btn">GET STARTED</button>
 </div>
@@ -31,14 +81,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner text-center">
     <div class="item active">
-      <%#= image_tag "bg2.gif" %>
     </div>
-    <!-- <div class="item">
-      <img src="http://i.imgur.com/TQMnivK.gif">
-    </div>
-    <div class="item">
-      <img src="http://i.imgur.com/VFQ9jXY.gif">
-    </div> -->
   </div>
 </div>
 
