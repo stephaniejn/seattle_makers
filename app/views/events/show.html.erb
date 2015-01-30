@@ -5,9 +5,9 @@
 </div>
 <br>
 <div class='container main-container'>
-
-  <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
-
+  <div class='event-header'>
+    <h1 style="text-align:center"><%= @event.title%> <%if @current_user == @event.user%> <%= link_to 'Edit Event', edit_event_path, :class=>'btn' %><%end%></h1>
+  </div>
   <br />
   <br />
   <div class='row'>

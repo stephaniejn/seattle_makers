@@ -120,6 +120,20 @@ body {
 }
 
 
+/* ------------ Event Page ------------ */
+.event-header {
+  background-color: #726659;
+/*  height: 120px;*/
+  color: #fff;
+}
+
+.event-header > h1 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: #fff;
+}
+
+
 /* ------------ About Page ------------ */
 
 .our-story {
