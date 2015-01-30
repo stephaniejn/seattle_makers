@@ -4,7 +4,7 @@ class AuthController < ApplicationController
     @user = @current_user
 
     if @user
-      uid =request.env['omniauth.auth']['uid']
+      uid =request.ENV['omniauth.auth']['uid']
       @current_user.update_attribute("uid", uid)
     end
 
