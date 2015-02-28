@@ -39,8 +39,3 @@
 ### Attend an event---Lose a ticket. Gain more by hosting an event that has more than half capacity amount attending!
 ![Attend the event](http://i61.tinypic.com/2q9ds9f.png)
 
-
-
-
-![A Representation of Octdrey Catburn](http://octodex.github.com/images/octdrey-catburn.jpg)
-
