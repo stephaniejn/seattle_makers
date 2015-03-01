@@ -4,6 +4,7 @@
 
 #### Seattle Trading Post connects the community of makers to allow people in the DIY community to learn from each other, and contribute their own skills.
 **Developed for General Assembly's Web Development Immersive by Luna Alison Alvarez, Nick Lathe, Claire Lyles, and Stephanie Nilles.**
+*Built with Ruby on Rails, HTML, CSS and Facebook, Cloudinary & Venmo APIs*
 ### Using the app is simple.
 * Sign-up or login
 * Each user is given two tickets upon signing up. These tickets grant you access to events hosted by other users.
