@@ -13,7 +13,7 @@ Built with Ruby on Rails, HTML, CSS and Facebook, Cloudinary & Venmo APIs
 * Donations encouraged (honesty policy). Donate page located on the event's page.
 
 
-[Visit Seattle Trading Post!](seattletradingpost.herokuapp.com)
+[Visit Seattle Trading Post!](http://seattletradingpost.herokuapp.com/)
 
 
 ## Walkthrough
