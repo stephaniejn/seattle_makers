@@ -175,7 +175,7 @@ div.modal-footer {
 }
 
 .event-cap {
-  text-align:center;
+  text-align: center;
   background-color: #726659;
   border-radius: 50%;
   width: 60px;
@@ -322,6 +322,10 @@ div.modal-footer {
   left:0;
   width:100%;
   text-align:center;
+}
+
+button > span {
+  background-color: #a88f6a;
 }
 
 /* ------------ Nav Bar ------------ */
@@ -638,10 +642,31 @@ fieldset[disabled] .btn-primary.active {
 
   .btn-disappear,
   .logo,
-  .user-info,
-  .categories-btn,
+  /*.user-info,*/
+  /*.categories-btn,*/
   .copyright {
     display: none;
+  }
+
+  #overlay-text {
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  #start-btn {
+    margin-bottom: 100px;
+    margin-top: 0;
+  }
+
+  .user-info {
+    margin-right: 20px;
+  }
+
+  .col-md-5,
+  .col-xs-5 {
+
   }
 
 }
