@@ -256,7 +256,8 @@ div.modal-footer {
 
 .bio-div {
   display: inline-block;
-  width: 40%;
+  width: 35%;
+  padding: 0 15px 0 15px;
 }
 
 /* ------------ Profile Show Page ------------ */
@@ -696,7 +697,7 @@ fieldset[disabled] .btn-primary.active {
   }
 
   .bio-div {
-    width: 60%;
+    max-width: 70%;
   }
 
   #bio-padding {
