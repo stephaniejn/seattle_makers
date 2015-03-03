@@ -39,7 +39,7 @@
       </div>
   </div>
   <div class='row'>
-    <div class='col-xs-5 col-md-5 col-md-offset-1'>
+    <div class='col-xs-5 col-md-5 col-md-offset-1 text-left'>
       <% if @event_pic != nil %>
         <img class="event-img" src="<%= @event_pic %>">
       <% else%>
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div class='event-details'>
+      <div class='event-details text-left'>
         <div class='row event-header-row'>
           <h2><strong>Event Description:</strong></h2>
           <%= @event.desc%>

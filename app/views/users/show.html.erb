@@ -12,35 +12,40 @@
   </div>
 
   <!-- ##### Profile Picture, FB & Edit Button ##### -->
-    <div class='col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1'>
-        <div class='col-xs-6 col-md-6 text-center'>
-          <!-- Profile Image -->
-          <div class='row'>
-            <% if @user.uid.blank?%>
-              <img id="placeholder" src="<%=asset_path "person-placeholder.png"%>">
-              <p><a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
-            <% else %>
-              <img style="width:250px" src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large" id='fb-picture'>
-            <% end %>
-          </div>
-          <!-- Profile Image -->
-          <div class='row'>
-            <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
-          </div>
-          <!-- Profile Profile Info -->
-          <div class='row'>
-            <strong>Name:</strong><%= @user.name %>
-          </div>
-          <div class='row'>
-            <strong>Email:</strong><%= @user.email %>
-          </div>
-          <div class='row'>
-            <strong>Available Tickets:</strong><%= @user.tickets.count %>
-          </div>
-        </div>
+  <div class='col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1'>
+    <div class='col-xs-6 col-md-6 text-center'>
+        <!-- Profile Image -->
+      <div class='row'>
+        <% if @user.uid.blank?%>
+          <img id="placeholder" src="<%=asset_path "person-placeholder.png"%>">
+          <p><a href="/auth/facebook">Get Profile Photo from Facebook</a></p>
+        <% else %>
+          <img style="width:250px" src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large" id='fb-picture'>
+        <% end %>
+      </div>
+        <!-- Profile Image -->
+      <div class='row'>
+        <%= link_to 'Edit Profile', edit_user_path, :class=>'btn btn-primary' %>
+      </div>
+      <!-- Profile Profile Info -->
+      <div class='row'>
+        <strong>Name:</strong><%= @user.name %>
+      </div>
+      <div class='row'>
+        <strong>Email:</strong><%= @user.email %>
+      </div>
+      <div class='row'>
+        <strong>Available Tickets:</strong><%= @user.tickets.count %>
+      </div>
+    </div>
       <!-- Pie Chart -->
       <div class='col-xs-6 col-md-6 text-center pie-chart'>
+      <h2>Event Stats</h2>
+      <% if @attend_count > 0 %>
         <img src="<%= @piechart %>" class='piechart-img'>
+      <% else %>
+        <p>To see event stats, attend an event!</p>
+      <% end %>
       </div>
     </div>
 
@@ -113,7 +118,7 @@
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -123,7 +128,7 @@
           <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
             </div>
             <div class='row'>

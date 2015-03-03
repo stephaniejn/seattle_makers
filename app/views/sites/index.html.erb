@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <%= render 'shared/modal' %>
 <!-- Carousel-->
 <div class="col-md-12 col-sm-12">
@@ -21,21 +22,27 @@
   </div>
 </div>
 <div class="col-md-12 col-sm-12">
-  <div id="index-desc" class='row our-story'>
-    <div class='col-md-10 col-sm-10 col-xs-offset-2 col-md-offset-2 row our-story'>
-      <div class='col-xs-5 col-md-5 p1'><p>Craft. Trade. Skill. These are traits that, historically, have been passed down from one generation to the next. A father teaching his son woodworking, a grandfather teaching his granddaugter how to fashion a leather belt. Today, with family spread across the far corners of the world, it's ever more important to have someone you can pass your skill on to. Seattle Makers exists to connect today's makers and craftsmen, giving you the oportunity to both teach and learn from another maker like yourself. Upon signup, you will recieve two credits. Each maker's event uses one credit to attend, so pick a couple events that look interesting to you and start learning. After that, it's your turn to teach.</p></div>
-      <div class='col-xs-5 col-md-5 p2'><p>Create a new event. If your event has a lot of supplies that cost money, you can choose a suggested donation to help offset those costs. Once the event has been held, and your attendance was at least half of your capacity, you will recieve 3 more credits. We think this is a good balance of learning and teaching. Take a look around on the Discover page. Here, you can narrow your search via categories to help you find exactly what you would like to learn. From Libations, to Textiles, to Metallurgy, you are sure to find a new skill to pick up, and one you can share with others.</p></div>
+<!-- Flash Messages -->
+  <div class='col-md-6 col-md-offset-3'>
+    <div class='error-msg text-center'>
+      <%= render "shared/flash" %>
     </div>
   </div>
-</div>
+  <div id="index-desc" class='row our-story'>
+    <div class='col-md-8 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 col-md-offset-2 our-story text-center'>
+      <p>Craft. Trade. Skill. These are traits that, historically, have been passed down from one generation to the next. A father teaching his son woodworking, a grandfather teaching his granddaugter how to fashion a leather belt. Today, with family spread across the far corners of the world, it's ever more important to have someone you can pass your skill on to. Seattle Makers exists to connect today's makers and craftsmen, giving you the oportunity to both teach and learn from another maker like yourself. Upon signup, you will recieve two credits. Each maker's event uses one credit to attend, so pick a couple events that look interesting to you and start learning. After that, it's your turn to teach.</p>
+      <p>Create a new event. If your event has a lot of supplies that cost money, you can choose a suggested donation to help offset those costs. Once the event has been held, and your attendance was at least half of your capacity, you will recieve 3 more credits. We think this is a good balance of learning and teaching. Take a look around on the Discover page. Here, you can narrow your search via categories to help you find exactly what you would like to learn. From Libations, to Textiles, to Metallurgy, you are sure to find a new skill to pick up, and one you can share with others.</p></div>
+    </div>
+  </div>
+<!-- </div> -->
 <!-- End Carusel -->
 
 <!-- Events -->
-<div class='container main-container'>
+<div class='container main-container text-center'>
   <h1>Trending</h1>
-  <div class='event-row text-center'>
+  <!-- <div class='event-row text-center'> -->
      <div class='event-row text-center'>
-      <% @trending_arr[1,6].each do |event_id, trending |%>
+      <% @trending_arr[0,5].each do |event_id, trending |%>
        <% if @event.find_by_id(event_id).date >= Date.today && trending != 1 %>
       <div class='event-div'>
         <%= image_tag @event.find_by_id(event_id).image_id, :class =>'event-img' %>
@@ -44,5 +51,5 @@
       <% end %>
       <% end %>
     </div>
-  </div>
+  <!-- </div> -->
 </div>

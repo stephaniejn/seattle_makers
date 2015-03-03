@@ -1,5 +1,4 @@
 # Seattle Trading Post
-
 -
 
 #### Seattle Trading Post connects the community of makers to allow people in the DIY community to learn from each other, and contribute their own skills.

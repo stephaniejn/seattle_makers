@@ -78,6 +78,12 @@ h2 {
   color: #726659;
 }
 
+h4 {
+    font-family: 'Montserrat';
+  font-size: 18px;
+  color: #726659;
+}
+
 body {
   font-family: 'IM Fell Double Pica';
   font-size: 15px;
@@ -175,7 +181,7 @@ div.modal-footer {
 }
 
 .event-cap {
-  text-align:center;
+  text-align: center;
   background-color: #726659;
   border-radius: 50%;
   width: 60px;
@@ -246,6 +252,12 @@ div.modal-footer {
 .team-icon-male {
   width: 50%;
   height: 50%;
+}
+
+.bio-div {
+  display: inline-block;
+  width: 35%;
+  padding: 0 15px 0 15px;
 }
 
 /* ------------ Profile Show Page ------------ */
@@ -324,6 +336,10 @@ div.modal-footer {
   text-align:center;
 }
 
+button > span {
+  background-color: #a88f6a;
+}
+
 /* ------------ Nav Bar ------------ */
 
 .navbar {
@@ -338,6 +354,8 @@ div.modal-footer {
   float: left;
   margin-bottom: 0px;
   color: #000;
+  /*background-color: #FBFBFB;*/
+  top: 0;
 }
 
 .nav.navbar-nav {
@@ -364,6 +382,15 @@ div.modal-footer {
   font-family: 'Montserrat';
   font-size: 15px;
   letter-spacing: 1px;
+  /*background-color: #FBFBFB;*/
+}
+
+.nav.navbar-nav a:hover {
+  background-color: #fff;
+}
+
+.nav.navbar-nav a:focus {
+  outline: none;
   background-color: #fff;
 }
 
@@ -499,7 +526,7 @@ li.nav-item a:visited {
 li.nav-item a:hover {
   color: #a88f6a;
   text-decoration: underline;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 li.nav-logo a:hover {
@@ -622,9 +649,13 @@ fieldset[disabled] .btn-primary.active {
 /* ------------------- discover ------------------- */
 
 
-.category-h3 h3 {
+.category-h3 {
   display: inline-block;
+  padding-top: 20px;
   padding-right: 20px;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  color: #726659;
 }
 
 /* ------------------ media queries ------------ */
@@ -638,10 +669,39 @@ fieldset[disabled] .btn-primary.active {
 
   .btn-disappear,
   .logo,
-  .user-info,
-  .categories-btn,
+  /*.user-info,*/
+  /*.categories-btn,*/
   .copyright {
     display: none;
+  }
+
+  #overlay-text {
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  #start-btn {
+    margin-bottom: 100px;
+    margin-top: 0;
+  }
+
+  .user-info {
+    margin-right: 20px;
+  }
+
+  .col-md-5,
+  .col-xs-5 {
+
+  }
+
+  .bio-div {
+    max-width: 70%;
+  }
+
+  #bio-padding {
+    padding-top: 80px;
   }
 
 }
