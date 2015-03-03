@@ -118,7 +118,7 @@
           <% if event.date < Date.today%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
               <div class='row'>
                 <span><%= link_to event.title, event_path(event) %></span>
@@ -128,7 +128,7 @@
           <% if event.time.strftime("%l:%M %P") < Time.now.strftime("%l:%M %P")%>
             <div class='col-xs-3 col-md-3'>
               <div class='row'>
-                <img src="<%=event.image_id%>" class='event-img'>
+                <img src="<%=event.image_id%>" class='event-img-profile'>
               </div>
             </div>
             <div class='row'>
