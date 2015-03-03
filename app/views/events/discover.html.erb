@@ -2,8 +2,12 @@
 
 <div class='container main-container'>
   <div class="category-h3">
-    <% @category.each do |c| %>
-    <%= link_to c.name, category_path(c.id) %> |
+    <% @category.each_with_index do |c, idx| %>
+      <% if (@category.length - 1) === idx %>
+        <%= link_to c.name, category_path(c.id) %>
+      <% else %>
+        <%= link_to c.name, category_path(c.id) %> |
+      <% end %>
     <% end %>
   </div>
 

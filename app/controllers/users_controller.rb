@@ -31,9 +31,10 @@ class UsersController < ApplicationController
       else
 
       # ---------- Start Google Chart Gem ---------- #
+      @attend_count = User.find_by_id(@current_user).attending.count
       pc = GoogleChart::PieChart.new('420x200', "Attended Categories", false) do |pc|
         # returns the total number of events this person is going to
-        @attend_count = User.find_by_id(@current_user).attending.count
+        # @attend_count = User.find_by_id(@current_user).attending.count
         # returns an array of event objects
         @event_attend =  User.find_by_id(@current_user).attending.map do |e|
           e
@@ -72,8 +73,6 @@ class UsersController < ApplicationController
           end
         # end
 
-        # render json:@hi
-        # pc.is_3d = true
         pc.chart_title = nil
         @piechart = pc.to_url
         end
